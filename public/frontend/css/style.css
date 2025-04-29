@@ -1,0 +1,349 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    font-family: Noto Sans"
+}
+body {
+     margin: 0;
+     padding-top: 60px;
+     
+}
+
+.navbar {
+     background-color: #6a3bda;
+     padding: 15px 20px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     position: sticky;
+     z-index: 1000;
+}
+.header{
+     background-color: #e9e8ecb7;
+     margin-top: 0%;
+     padding: 15px;
+     display: flex;
+     justify-content:center;
+     align-items:end;
+     
+}
+.menu {
+     list-style: none;
+     display: flex;
+     margin: 0;
+     padding: 0;
+}
+.menu li {
+     margin: 0;
+     position: relative;
+     padding-right: 15px;
+     /* Space for the right-side border */
+}
+
+.menu li::after {
+     content: '';
+     position: absolute;
+     top: 50%;
+     /* Vertically center */
+     right: 0;
+     height: 60%;
+     /* Height of the border */
+     width: 2px;
+     /* Thickness of the border */
+     background-color: white;
+     transform: translateY(-50%);
+     /* Align border vertically */
+}
+
+.menu li:last-child::after {
+     display: none;
+     /* Remove border from the last item */
+}
+
+.menu a {
+     text-decoration: none;
+     color: white;
+     font-size: 16px;
+     padding: 8px 12px;
+     display: block;
+     transition: color 0.3s;
+}
+
+.menu a:hover {
+     color: #e67c04;
+}
+
+/* Search Box */
+.search-container {
+     display: flex;
+     align-items: center;
+     position: relative;
+}
+
+.search-box {
+     width: 0;
+     padding: 8px;
+     border: 1px solid #ccc;
+     border-radius: 20px;
+     outline: none;
+     transition: width 0.3s ease, opacity 0.3s ease;
+     opacity: 0;
+     font-size: 16px;
+     margin-left: 10px;
+}
+
+.search-box.active {
+     width: 200px;
+     opacity: 1;
+}
+
+.search-icon {
+     background: none;
+     border: none;
+     font-size: 18px;
+     color: white;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 8px;
+     transition: color 0.3s, transform 0.2s;
+}
+
+.search-icon:hover {
+     color: #E8F6F7;
+     transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+     .navbar {
+          flex-wrap: wrap;
+          justify-content: center;
+     }
+
+     .menu {
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+     }
+
+     .menu li {
+          margin: 10px 0;
+          padding-right: 0;
+     }
+
+     .menu li::after {
+          display: none;
+          /* Remove borders in responsive view */
+     }
+
+     .search-container {
+          margin-top: 10px;
+          width: 100%;
+          justify-content: center;
+     }
+}
+
+.carousel-caption {
+     top: 50%;
+     transform: translateY(-50%);
+     left: 50%;
+     right: auto;
+     text-align: left;
+     color: #333;
+}
+
+.carousel-caption h1 {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: 15px;
+}
+
+.carousel-caption p {
+     font-size: 1.25rem;
+     margin-bottom: 20px;
+}
+
+.carousel-caption .btn {
+     background-color: #6a3bda;
+     border: none;
+     padding: 10px 20px;
+     font-size: 1rem;
+     border-radius: 5px;
+     transition: background-color 0.3s ease;
+}
+
+.carousel-caption .btn:hover {
+     background-color: #2f6c6d;
+     color: #fff;
+}
+
+/* General Text Styles */
+.carousel-caption {
+     top: 50%;
+     transform: translateY(-50%);
+     color: #333;
+     text-align: left;
+}
+
+/* Custom Styling for First Two Slides (Left-Aligned) */
+.custom-slide-left {
+     left: 15%;
+     right: auto;
+}
+
+/* Custom Styling for the Last Slide (Right-Aligned) */
+.custom-slide-right {
+     left: auto;
+     right: 52%;
+     text-align: right;
+}
+
+.hover-card {
+     position: relative;
+     overflow: hidden;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+}
+
+.hover-card .hover-text {
+     position: absolute;
+     top: 100%;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.7);
+     color: #fff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: top 0.3s ease-in-out;
+     text-align: center;
+     padding: 1rem;
+}
+
+.hover-card:hover .hover-text {
+     top: 0;
+}
+
+.our-bg{
+     background-color: #242426;
+}
+
+.footer {
+     background-color: #333;
+     color: #fff;
+     padding: 35px 0;
+     text-align: center;
+     font-size: 15px;
+     line-height: 1.5;
+     letter-spacing:0cap;
+}
+
+.trademark{
+     background-color: #030303;
+     text-align: center;
+     margin-bottom: 0;
+     color: #fffcfc;
+     padding: 8px;   
+}
+.trademark a{
+     color: orangered;
+     text-decoration: none;
+}
+
+
+/* navbar code */ 
+
+/* Full-width navbar with sticky functionality */
+.navbar {
+     position: fixed;
+     /* Use fixed positioning instead of sticky */
+     top: 0;
+     /* Ensure it stays at the top */
+     left: 0;
+     /* Align it to the left edge of the viewport */
+     width: 100%;
+     /* Full width of the page */
+     display: flex;
+     /* Horizontal layout */
+     justify-content: center;
+     /* Center items horizontally */
+     align-items: center;
+     /* Center items vertically */
+     background-color: #6a0dad;
+     /* Purple background */
+     z-index: 1000;
+     /* Keep it above other content */
+     /* Add a bottom border */
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+     /* Add shadow for styling */
+     padding: 10px 0;
+     /* Add vertical padding */
+}
+
+/* Styling each nav item */
+.nav-item {
+     padding: 10px 15px;
+     /* Space around each item */
+     margin: 0 5px;
+     /* Space between items */
+     border: 2px solid #fff;
+     /* Border around each item */
+     border-radius: 5px;
+     /* Rounded corners */
+     color: white;
+     /* Text color */
+     font-family: Arial, sans-serif;
+     /* Font styling */
+     font-size: 14px;
+     /* Font size */
+     text-align: center;
+     /* Center text */
+     background-color: transparent;
+     /* Transparent background for contrast */
+     cursor: pointer;
+     /* Pointer cursor for interaction */
+}
+
+/* Add hover effect for nav items */
+.nav-item:hover {
+     background-color: #fff;
+     /* White background on hover */
+     color: #6a0dad;
+     /* Purple text on hover */
+     transition: all 0.3s ease-in-out;
+     /* Smooth transition */
+}
+
+/* Search icon specific styling */
+.search-icon {
+     font-size: 18px;
+     /* Slightly larger font for the icon */
+     border-radius: 50%;
+     /* Circle around the icon */
+     padding: 8px;
+     /* Adjust padding for better appearance */
+}
+
+/* Make the navbar responsive */
+@media (max-width: 768px) {
+     .navbar {
+          flex-wrap: wrap;
+          /* Allow items to wrap to the next line */
+     }
+
+     .nav-item {
+          flex: 1 1 auto;
+          /* Flexible width for smaller screens */
+          text-align: center;
+     }
+}
+
+.gap_fixing{
+     width: 100%;
+     height: 17px;
+     background-color: #7c7575c7;
+     margin-top: -3%;
+}
