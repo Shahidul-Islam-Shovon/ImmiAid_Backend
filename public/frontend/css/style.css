@@ -20,7 +20,7 @@ body {
 }
 .header{
      background-color: #e9e8ecb7;
-     margin-top: 0%;
+     margin-top: -5%;
      padding: 15px;
      display: flex;
      justify-content:center;
@@ -32,6 +32,7 @@ body {
      display: flex;
      margin: 0;
      padding: 0;
+    
 }
 .menu li {
      margin: 0;
@@ -40,25 +41,6 @@ body {
      /* Space for the right-side border */
 }
 
-.menu li::after {
-     content: '';
-     position: absolute;
-     top: 50%;
-     /* Vertically center */
-     right: 0;
-     height: 60%;
-     /* Height of the border */
-     width: 2px;
-     /* Thickness of the border */
-     background-color: white;
-     transform: translateY(-50%);
-     /* Align border vertically */
-}
-
-.menu li:last-child::after {
-     display: none;
-     /* Remove border from the last item */
-}
 
 .menu a {
      text-decoration: none;
@@ -346,4 +328,97 @@ body {
      height: 17px;
      background-color: #7c7575c7;
      margin-top: -3%;
+}
+
+
+
+/* new responsive code start here */ 
+
+
+
+/* Reset some basic styles */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+/* Container */
+.container {
+     width: 90%;
+     max-width: 1200px;
+     margin: auto;
+}
+
+/* Navbar styles */
+.navbar {
+     background-color: #0f172a;
+     padding: 15px 0;
+     position: relative;
+}
+
+.navbar .logo {
+     color: #fff;
+     font-size: 24px;
+     font-weight: bold;
+     float: left;
+}
+
+.navbar ul.menu {
+     list-style: none;
+     display: flex;
+     justify-content: flex-end;
+     gap: 20px;
+}
+
+.navbar ul.menu li a {
+     text-decoration: none;
+     color: #fff;
+     font-weight: 500;
+     transition: color 0.3s ease;
+}
+
+.navbar ul.menu li a:hover {
+     color: #38bdf8;
+}
+
+/* Responsive nav button */
+.nav-toggle {
+     display: none;
+     font-size: 26px;
+     color: #fff;
+     cursor: pointer;
+     float: right;
+}
+
+@media (max-width: 768px) {
+     .navbar ul.menu {
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: #0f172a;
+          width: 100%;
+          display: none;
+          padding: 20px 0;
+     }
+
+     .navbar ul.menu.show {
+          display: flex;
+     }
+
+     .nav-toggle {
+          display: block;
+     }
+
+     .navbar .logo {
+          float: none;
+          text-align: center;
+     }
+
+     .navbar::after {
+          content: "";
+          display: block;
+          clear: both;
+     }
 }

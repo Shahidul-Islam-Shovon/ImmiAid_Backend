@@ -1,9 +1,18 @@
-// script.js
+
+function toggleMenu() {
+const menu = document.getElementById('menu');
+menu.classList.toggle('show');
+}
+
+function toggleSearch() {
+const box = document.getElementById('search-box');
+box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+}
+
+
 document.getElementById("search-button").addEventListener("click", function () {
-     const searchBox = document.getElementById("search-box");
-     searchBox.classList.toggle("active");
-     if (searchBox.classList.contains("active")) {
-          searchBox.focus(); // Focus on the search box when it becomes visible
-     }
+    document.getElementById("search-box").classList.toggle("active");
 });
+
+
 

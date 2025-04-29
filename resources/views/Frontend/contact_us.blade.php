@@ -11,9 +11,10 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
      <style>
            .choose{
                text-align: center;
@@ -25,80 +26,24 @@
                background-color: bisque;
                padding: 59px;
           }
-          .service_text{
+
+          .service_text {
                border-bottom: 1px solid black;
                margin-top: 7%;
                padding: 10px;
                width: fit-content;
           }
-          body {
-          margin: 0;
-          padding: 0;
-          background-color: #f9f9f9;
-          }
-
-          .services-container {
-          max-width: 600px;
-          margin: 50px auto;
-          padding: 20px;
-          background-color: #fff;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          border-radius: 8px;
-          }
-
-          .services-container h2 {
-          font-size: 24px;
-          margin-bottom: 10px;
-          color: #333;
-          border-bottom: 2px solid #ddd;
-          display: inline-block;
-          }
-
-          .services-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          }
-
-          .services-list li {
-          margin: 10px 0;
-          }
-
-          .services-list li a {
-          font-size: 16px;
-          color: rgb(4, 131, 124);
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          }
-
-          .services-list li a:hover {
-          text-decoration: none;
-          color: rgb(230, 84, 0);
-          transition: 1s all;
-          }
-
-          .services-list li a::before {
-          content: "»";
-          color: purple;
-          margin-right: 10px;
-          font-weight: bold;
-          }
-          .custom{
-               margin-top: 4%;
-          }
-
      </style>
 </head>
 
 <body>
 
-     <section class="container-fluid header custom">
+     <section class="container-fluid header">
           <div class="row align-items-center d-flex justify-content-between">
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
                     <a href="../index.html">
-                         <img style="width:180px; margin-top: -7%;" src="../img/logoo.png" alt="Logo Here">
+                         <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
                     </a>
                </div>
                <!-- Text on the right -->
@@ -110,39 +55,46 @@
      </section>
 
 
+     </section>
+
      <section>
           <div class="mt-4">
                <div class="col-md-12">
-                    <div class="">
-                         <nav class="navbar">
-                              <ul class="menu">
-                                   <li><a href="../index.html">Home</a></li>
-                                   <li><a href="choose_us.html">Why Choose Us</a></li>
-                                   <li><a href="services.html">Services</a></li>
-                                   <li><a href="pricing.html">Pricing</a></li>
-                                   <li><a href="contact_us.html">Contact Us</a></li>
-                                   <li><a href="review.html">Review Us</a></li>
-                                   <li><a href="sitemap.html">Sitemap</a></li>
-                              </ul>
-                              <div class="search-container">
-                                   <button class="search-icon" id="search-button">
-                                        <img width="20px" src="../img/search-interface-symbol.png" alt="">
-                                   </button>
-                                   <input type="text" id="search-box" class="search-box" placeholder="Search..." />
-                              </div>
-                         </nav>
+                     <nav class="navbar">
+               <div class="container">
+                    <div class="nav-left">
+                         <span class="logo">Aid Immigration</span>
                     </div>
+
+                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+
+                    <ul class="menu" id="menu">
+                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
+                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
+                         <li><a href="{{ route('services') }}">Services</a></li>
+                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
+                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
+                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
+                    </ul>
+
+                    <div class="search-container">
+                         <button class="search-icon" id="search-button" onclick="toggleSearch()">
+                              <img width="20px" src="{{ asset('frontend/img/search-interface-symbol.png') }}" alt="Search">
+                         </button>
+                         <input type="text" id="search-box" class="search-box" placeholder="Search..." />
+                    </div>
+               </div>
+               </nav>
                </div>
           </div>
      </section>
 
 
      <!-- main start -->
-
-     <div class="gap_fixing"></div>
-
+      <div class="gap_fixing"></div>
      <section class="background">
-          <h2 class="choose">Our Valuable Services</h2>
+          <h2 class="choose">Contact Us</h2>
      </section>
 
      <section>
@@ -151,55 +103,50 @@
                     <div class="col-md-12 mt-4">
                          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                                   <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                                   <li class="breadcrumb-item active" aria-current="page">Our Valuable Services</li>
+                                   <li class="breadcrumb-item"><a href="{{route('front_end_index')}}">Home</a></li>
+                                   <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                               </ol>
                          </nav>
-                    </div>
-
-                    <div class="col-md-7">
-                         <h4 class="service_text">We provide following services</h4>
-                    <ul class="services-list mt-5">
-                        
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/work-visas" target="_blank">TIER 5 TEMPORARY WORK</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/student-visas" target="_blank">TIER 4 STUDENT VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/settle-in-the-uk" target="_blank">INDEFINITE LEAVE TO REMAIN</a></li>
-
-                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">FAMILY VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/citizenship/citizenship" target="_blank">CITIZENSHIP AND NATURALISATION</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration" target="_blank">EEA PERMITS VISAS</a></li>
-
-                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">MARRIAGE VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/check-uk-visa" target="_blank">VISITOR VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/uk-visa-sponsorship-employers" target="_blank">SPONSORS APPLICATIONS</a></li>
-                    </ul>
-                    
-                    <p class="mt-5">Other Services: <br>
-                    Same Day Representation Can be done at Public Enquiry Office</p>
-                    </div>
-                    <div class="col-md-5 mt-5">
-                         <img src="../img/services.jpg" alt="service image">
-                    </div>
+                    </div>                  
                </div>
           </div>
      </section>
 
 
      <section>
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-6">
+                         <h4 class="service_text">Contact Us</h4>
+                         <br>
+                         <p style="color:rgb(6, 100, 69)">Company Registration Address</p>
+                         <p style="font-family: roboto slab">11 George Tilbury House,<br>
+                              Godman Road<br>
+                              Grays<br>
+                              RM16 4TE</p>
+                         <br>
+                         <p>Phone : 07501695476</p>
+                         <p>Email : info@aid-immigration.co.uk</p>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                    <iframe style="border:1px solid rgb(214, 211, 211)"
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.252649148961!2d0.3694782757166346!3d51.490231011958564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8b7de8c80c0c7%3A0xa7ef2c88ffae12ee!2sGodman%20Rd%2C%20Grays%2C%20UK!5e0!3m2!1sen!2sbd!4v1732772758801!5m2!1sen!2sbd"
+                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                         referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <section>
           <div class="container mt-3">
                <div class="row">
                     <div class="col-md-4 mt-5">
-                         <img style="margin-left: -25%;" src="../img/9-removebg-preview.png" alt="OISC Logo here">
-                         <h4 style="font-family: Noto Sans, sans-serif; font-weight: 700;margin-top: 7%; margin-bottom: 6%;">Contact
+                         <img style="margin-left: -25%;" src="{{asset('frontend/img/9-removebg-preview.png')}}" alt="OISC Logo here">
+                         <h4 style="font-family: Noto Sans, sans-serif; font-weight: 700;margin-top: 7%; margin-bottom: 6%;">
+                              Contact
                               Details
-     
+
                          </h4>
                          <h5 style="font-family: Noto Sans, sans-serif; font-weight: 700;">Our Address</h5>
                          <p style="font-family: roboto slab">11 George Tilbury House,<br>
@@ -210,7 +157,7 @@
                          <h5 style="font-family: Noto Sans, sans-serif; font-size: medium;">Phone: 07501695476</h5>
                          <h5 style="font-family: Noto Sans, sans-serif; font-size: medium;">Email: info@aid-immigration.co.uk</h5>
                     </div>
-     
+
                     <div class="col-md-8 mt-5">
                          <h4>Submit Enquiry</h4>
                          <form>
@@ -243,7 +190,7 @@
      </section>
 
 
-     
+
 
 
      <!-- main end -->
@@ -319,11 +266,12 @@
           </footer>
      </section>
 
+
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
 
-     <script src="../js/index.js"></script>
+     <script src="{{asset('frontend/js/index.js')}}"></script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="{{asset('frontend/img/9-removebg-preview.png')}}">
      <style>
            .choose{
                text-align: center;
@@ -104,6 +104,7 @@
                color: #6c757d; /* Muted color for note */
           }
      </style>
+      <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 </head>
 
 <body>
@@ -113,7 +114,7 @@
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
                     <a href="../index.html">
-                         <img style="width:180px; margin-top: -7%;" src="../img/logoo.png" alt="Logo Here">
+                         <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
                     </a>
                </div>
                <!-- Text on the right -->
@@ -129,25 +130,32 @@
      <section>
           <div class="mt-4">
                <div class="col-md-12">
-                    <div class="">
-                         <nav class="navbar">
-                              <ul class="menu">
-                                   <li><a href="../index.html">Home</a></li>
-                                   <li><a href="choose_us.html">Why Choose Us</a></li>
-                                   <li><a href="services.html">Services</a></li>
-                                   <li><a href="pricing.html">Pricing</a></li>
-                                   <li><a href="contact_us.html">Contact Us</a></li>
-                                   <li><a href="review.html">Review Us</a></li>
-                                   <li><a href="sitemap.html">Sitemap</a></li>
-                              </ul>
-                              <div class="search-container">
-                                   <button class="search-icon" id="search-button">
-                                        <img width="20px" src="../img/search-interface-symbol.png" alt="">
-                                   </button>
-                                   <input type="text" id="search-box" class="search-box" placeholder="Search..." />
-                              </div>
-                         </nav>
+                    <nav class="navbar">
+               <div class="container">
+                    <div class="nav-left">
+                         <span class="logo">Aid Immigration</span>
                     </div>
+
+                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+
+                    <ul class="menu" id="menu">
+                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
+                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
+                         <li><a href="{{ route('services') }}">Services</a></li>
+                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
+                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
+                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
+                    </ul>
+
+                    <div class="search-container">
+                         <button class="search-icon" id="search-button" onclick="toggleSearch()">
+                              <img width="20px" src="{{ asset('frontend/img/search-interface-symbol.png') }}" alt="Search">
+                         </button>
+                         <input type="text" id="search-box" class="search-box" placeholder="Search..." />
+                    </div>
+               </div>
+               </nav>
                </div>
           </div>
      </section>
@@ -308,7 +316,7 @@
           <div class="container mt-3">
                <div class="row">
                     <div class="col-md-4 mt-5">
-                         <img style="margin-left: -25%;" src="../img/9.jpg" alt="OISC Logo here">
+                         <img style="margin-left: -25%;" src="{{asset('frontend/img/9.jpg')}}" alt="OISC Logo here">
                          <h4 style="font-family: Noto Sans, sans-serif; font-weight: 700;margin-top: 7%; margin-bottom: 6%;">
                               Contact
                               Details
@@ -435,7 +443,7 @@
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
 
-     <script src="../js/index.js"></script>
+     <script src="{{asset('frontend/js/index.js')}}"></script>
 </body>
 
 </html>

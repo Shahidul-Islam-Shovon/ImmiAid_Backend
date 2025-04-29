@@ -11,12 +11,11 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
      <style>
-          .choose{
+           .choose{
                text-align: center;
                font-family: Noto Sans;
                font-size: 22px;
@@ -26,21 +25,81 @@
                background-color: bisque;
                padding: 59px;
           }
-          .chose_p{
-               text-align: justify;
-               margin-top: 3%;
+          .service_text{
+               border-bottom: 1px solid black;
+               margin-top: 7%;
+               padding: 10px;
+               width: fit-content;
           }
+          body {
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          }
+
+          .services-container {
+          max-width: 600px;
+          margin: 50px auto;
+          padding: 20px;
+          background-color: #fff;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          }
+
+          .services-container h2 {
+          font-size: 24px;
+          margin-bottom: 10px;
+          color: #333;
+          border-bottom: 2px solid #ddd;
+          display: inline-block;
+          }
+
+          .services-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          }
+
+          .services-list li {
+          margin: 10px 0;
+          }
+
+          .services-list li a {
+          font-size: 16px;
+          color: rgb(4, 131, 124);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          }
+
+          .services-list li a:hover {
+          text-decoration: none;
+          color: rgb(230, 84, 0);
+          transition: 1s all;
+          }
+
+          .services-list li a::before {
+          content: "»";
+          color: purple;
+          margin-right: 10px;
+          font-weight: bold;
+          }
+          .custom{
+               margin-top: -1%;
+               margin-bottom: -2%;
+          }
+
      </style>
 </head>
 
 <body>
 
-     <section class="container-fluid header">
+     <section class="container-fluid header custom">
           <div class="row align-items-center d-flex justify-content-between">
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
                     <a href="../index.html">
-                         <img style="width:180px; margin-top: -7%;" src="../img/logoo.png" alt="Logo Here">
+                         <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
                     </a>
                </div>
                <!-- Text on the right -->
@@ -51,93 +110,104 @@
           </div>
      </section>
 
+
      <section>
           <div class="mt-4">
                <div class="col-md-12">
-                    <div class="">
-                         <nav class="navbar">
-                              <ul class="menu">
-                                   <li><a href="{{route('front_end_index')}}">Home</a></li>
-                                   <li><a href="choose_us.html">Why Choose Us</a></li>
-                                   <li><a href="services.html">Services</a></li>
-                                   <li><a href="pricing.html">Pricing</a></li>
-                                   <li><a href="contact_us.html">Contact Us</a></li>
-                                   <li><a href="review.html">Review Us</a></li>
-                                   <li><a href="sitemap.html">Sitemap</a></li>
-                              </ul>
-                              <div class="search-container">
-                                   <button class="search-icon" id="search-button">
-                                        <img width="20px" src="../img/search-interface-symbol.png" alt="">
-                                   </button>
-                                   <input type="text" id="search-box" class="search-box" placeholder="Search..." />
-                              </div>
-                         </nav>
+                    <nav class="navbar">
+               <div class="container">
+                    <div class="nav-left">
+                         <span class="logo">Aid Immigration</span>
                     </div>
+
+                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+
+                    <ul class="menu" id="menu">
+                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
+                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
+                         <li><a href="{{ route('services') }}">Services</a></li>
+                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
+                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
+                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
+                    </ul>
+
+                    <div class="search-container">
+                         <button class="search-icon" id="search-button" onclick="toggleSearch()">
+                              <img width="20px" src="{{ asset('frontend/img/search-interface-symbol.png') }}" alt="Search">
+                         </button>
+                         <input type="text" id="search-box" class="search-box" placeholder="Search..." />
+                    </div>
+               </div>
+               </nav>
                </div>
           </div>
      </section>
 
- 
+
      <!-- main start -->
 
      <div class="gap_fixing"></div>
 
-      <section class="background">
-          <h2 class="choose">Why Choose Us ?</h2>
-      </section>
+     <section class="background">
+          <h2 class="choose">Our Valuable Services</h2>
+     </section>
 
-      <section>
+     <section>
           <div class="container">
                <div class="row">
                     <div class="col-md-12 mt-4">
                          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                                   <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                                   <li class="breadcrumb-item active" aria-current="page">Why Choose Us</li>
+                                   <li class="breadcrumb-item"><a href="{{route('front_end_index')}}">Home</a></li>
+                                   <li class="breadcrumb-item active" aria-current="page">Our Valuable Services</li>
                               </ol>
                          </nav>
                     </div>
-                    <div class="col-md-7 mt-5 mb-3">
-                         <h4>Why Choose Us ?</h4>
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">We are regulated by OISC that’s gives you mental peace that you are dealing with authorized competent personals and
-                         experience who can be your trusted advisor. We are your best chance for a successful UK Immigration & Visa application
-                         because: </p>
-                         
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">We have extensive experience in handling most of categories of Immigration & Visas applications types and have receive
-                         successful outcomes
-                         we provide you an accurate and detailed specified documentation advise for preparing your case.</p>
-                         
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">We assess carefully your documentation and strengthens the weakness, by advising you alternate additional documentation,
-                         which helps not getting queries and speeds up process with Home Office giving favorable and immediate conclusion.We have
-                         in-house English, Hindi, Urdu, Gujarati, Marathi, speaking and understanding Punjabi adviser, so you can have better
-                         comfortable conversation.</p>
-                         
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">You are direct connected to the Immigration Adviser over the Mobile Phone unlike others wherein you would have to go
-                         through the receptionist.</p>
-                         
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">We only engage clients if you have a likely chance of success in your immigration case, hence, our success rate is very
-                         high.
-                         Our fees are set at a fixed rate for unlimited assistance until late hours and until your case is concluded and even
-                         after that.
-                         Our fee is reasonable and affordable compared to other solicitors firms in your local area.</p>
-                         
-                         <p class="chose_p" style="font-size: 15px;font-weight: 380;color: rgb(85, 84, 84);">We have strong ethical standards. Your success is our success
-                         Most of our clients refer us to their eligible friends and family to help them for Immigration Advice.</p>
+
+                    <div class="col-md-7">
+                         <h4 class="service_text">We provide following services</h4>
+                    <ul class="services-list mt-5">
+                        
+
+                         <li><a href="https://www.gov.uk/browse/visas-immigration/work-visas" target="_blank">TIER 5 TEMPORARY WORK</a></li>
+
+                         <li><a href="https://www.gov.uk/browse/visas-immigration/student-visas" target="_blank">TIER 4 STUDENT VISA</a></li>
+
+                         <li><a href="https://www.gov.uk/browse/visas-immigration/settle-in-the-uk" target="_blank">INDEFINITE LEAVE TO REMAIN</a></li>
+
+                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">FAMILY VISA</a></li>
+
+                         <li><a href="https://www.gov.uk/browse/citizenship/citizenship" target="_blank">CITIZENSHIP AND NATURALISATION</a></li>
+
+                         <li><a href="https://www.gov.uk/browse/visas-immigration" target="_blank">EEA PERMITS VISAS</a></li>
+
+                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">MARRIAGE VISA</a></li>
+
+                         <li><a href="https://www.gov.uk/check-uk-visa" target="_blank">VISITOR VISA</a></li>
+
+                         <li><a href="https://www.gov.uk/uk-visa-sponsorship-employers" target="_blank">SPONSORS APPLICATIONS</a></li>
+                    </ul>
+                    
+                    <p class="mt-5">Other Services: <br>
+                    Same Day Representation Can be done at Public Enquiry Office</p>
                     </div>
-                    <div class="col-sm-5 col-md-5 col-lg-5 mt-5">
-                         <img src="../img/11-1.jpg" alt="chose us image here">
+                    <div class="col-md-5 mt-5">
+                         <img src="{{asset('frontend/img/services.jpg')}}" alt="service image">
                     </div>
                </div>
           </div>
-      </section>
+     </section>
 
-      <section>
-          <div class="container">
+
+     <section>
+          <div class="container mt-3">
                <div class="row">
                     <div class="col-md-4 mt-5">
-                         <img style="margin-left: -25%;" src="../img/9-removebg-preview.png" alt="OISC Logo here">
-                         <h4 style="font-family: Noto Sans, sans-serif; font-weight: 700;margin-top: 7%; margin-bottom: 6%;">Contact Details
-          
+                         <img style="margin-left: -25%;" src="{{asset('frontend/img/9-removebg-preview.png')}}" alt="OISC Logo here">
+                         <h4 style="font-family: Noto Sans, sans-serif; font-weight: 700;margin-top: 7%; margin-bottom: 6%;">Contact
+                              Details
+     
                          </h4>
                          <h5 style="font-family: Noto Sans, sans-serif; font-weight: 700;">Our Address</h5>
                          <p style="font-family: roboto slab">11 George Tilbury House,<br>
@@ -148,7 +218,7 @@
                          <h5 style="font-family: Noto Sans, sans-serif; font-size: medium;">Phone: 07501695476</h5>
                          <h5 style="font-family: Noto Sans, sans-serif; font-size: medium;">Email: info@aid-immigration.co.uk</h5>
                     </div>
-          
+     
                     <div class="col-md-8 mt-5">
                          <h4>Submit Enquiry</h4>
                          <form>
@@ -168,7 +238,8 @@
                               </div>
                               <div class="mb-3">
                                    <label for="message" class="form-label">Tell Us More</label>
-                                   <textarea class="form-control" id="message" rows="5" placeholder="Tell Us More"></textarea>
+                                   <textarea class="form-control" id="message" rows="5"
+                                        placeholder="Tell Us More"></textarea>
                               </div>
                               <div class="text-center">
                                    <button type="submit" class="btn btn-dark">Enquiry</button>
@@ -177,7 +248,12 @@
                     </div>
                </div>
           </div>
-      </section>
+     </section>
+
+
+     
+
+
      <!-- main end -->
 
 
@@ -251,11 +327,11 @@
           </footer>
      </section>
 
-
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-     crossorigin="anonymous"></script>
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
 
-     <script src="../js/index.js"></script>
+     <script src="{{asset('frontend/js/index.js')}}"></script>
 </body>
+
 </html>

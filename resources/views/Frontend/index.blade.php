@@ -56,25 +56,32 @@
 <section>
      <div class="col-md-12">
           <nav class="navbar">
-                <ul class="menu">
-                    <li><a href="{{route('front_end_index')}}">Home</a></li>
+               <div class="container">
+                    <div class="nav-left">
+                         <span class="logo">Aid Immigration</span>
+                    </div>
 
-                    <li><a href="{{ asset('frontend/assets/choose_us.html') }}">Why Choose Us</a></li>
-                    <li><a href="{{ asset('frontend/assets/services.html') }}">Services</a></li>
-                    <li><a href="{{ asset('frontend/assets/pricing.html') }}">Pricing</a></li>
-                    <li><a href="{{ asset('frontend/assets/contact_us.html') }}">Contact Us</a></li>
-                    <li><a href="{{ asset('frontend/assets/review.html') }}">Review Us</a></li>
-                    <li><a href="{{ asset('frontend/assets/sitemap.html') }}">Sitemap</a></li>
-               </ul>
-               
+                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
 
-               <div class="search-container">
-                    <button class="search-icon" id="search-button">
-                         <img width="20px" src="/frontend/img/search-interface-symbol.png" alt="">
-                    </button>
-                    <input type="text" id="search-box" class="search-box" placeholder="Search..." />
+                    <ul class="menu" id="menu">
+                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
+                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
+                         <li><a href="{{ route('services') }}">Services</a></li>
+                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
+                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
+                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
+                    </ul>
+
+                    <div class="search-container">
+                         <button class="search-icon" id="search-button" onclick="toggleSearch()">
+                              <img width="20px" src="{{ asset('frontend/img/search-interface-symbol.png') }}" alt="Search">
+                         </button>
+                         <input type="text" id="search-box" class="search-box" placeholder="Search..." />
+                    </div>
                </div>
-          </nav>
+               </nav>
+
      </div>
 </section>
 
