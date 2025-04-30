@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,3 +22,15 @@ Route::get('/pricing', [FrontEndController::class, 'pricing'])->name('pricing');
 Route::get('/review_us', [FrontEndController::class, 'review_us'])->name('review_us');
 Route::get('/services', [FrontEndController::class, 'services'])->name('services');
 Route::get('/sitemap', [FrontEndController::class, 'sitemap'])->name('sitemap');
+
+// Backend part start 
+
+
+// Enquiry section
+Route::get('/see/all_enquiry', [EnquiryController::class, 'index'])->name('inquiry_page_open');
+
+Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
+
+Route::get('/inquiries', [EnquiryController::class, 'enq_index']);
+
+Route::get('/inquiries/read/{id}', [EnquiryController::class, 'markAsRead'])->name('inquiry.markAsRead');

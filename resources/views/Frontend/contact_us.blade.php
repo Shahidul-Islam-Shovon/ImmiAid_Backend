@@ -158,33 +158,7 @@
                          <h5 style="font-family: Noto Sans, sans-serif; font-size: medium;">Email: info@aid-immigration.co.uk</h5>
                     </div>
 
-                    <div class="col-md-8 mt-5">
-                         <h4>Submit Enquiry</h4>
-                         <form>
-                              <div class="row mb-3">
-                                   <div class="col-md-6">
-                                        <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                   </div>
-                                   <div class="col-md-6">
-                                        <label for="phone" class="form-label">Phone no.</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Phone no.">
-                                   </div>
-                              </div>
-                              <div class="mb-3">
-                                   <label for="email" class="form-label">Email Address</label>
-                                   <input type="email" class="form-control" id="email" placeholder="Email Address">
-                              </div>
-                              <div class="mb-3">
-                                   <label for="message" class="form-label">Tell Us More</label>
-                                   <textarea class="form-control" id="message" rows="5"
-                                        placeholder="Tell Us More"></textarea>
-                              </div>
-                              <div class="text-center">
-                                   <button type="submit" class="btn btn-dark">Enquiry</button>
-                              </div>
-                         </form>
-                    </div>
+                    @include('Frontend.EnquiryForm')
                </div>
           </div>
      </section>
