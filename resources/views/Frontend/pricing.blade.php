@@ -147,13 +147,7 @@
                          <li><a href="{{ route('review_us') }}">Review Us</a></li>
                          <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
                     </ul>
-
-                    <div class="search-container">
-                         <button class="search-icon" id="search-button" onclick="toggleSearch()">
-                              <img width="20px" src="{{ asset('frontend/img/search-interface-symbol.png') }}" alt="Search">
-                         </button>
-                         <input type="text" id="search-box" class="search-box" placeholder="Search..." />
-                    </div>
+                    
                </div>
                </nav>
                </div>

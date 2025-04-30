@@ -12,7 +12,7 @@ Auth::routes();
 
 Route::get('/', [FrontEndController::class, 'index'])->name('front_end_index');
 
-Route::get('/dashboard', [BackendController::class, 'index'])->name('backend_index');
+Route::get('/dashboard', [BackendController::class, 'index'])->name('backend_index')->middleware('auth');
 
 
 // linking the sub menus  ( Front end Part ) 
