@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -27,7 +28,8 @@ class FrontEndController extends Controller
 
     public function review_us()
     {
-        return view('Frontend.review');
+        $reviews = Review::latest()->take(10)->get();
+        return view('Frontend.review', compact('reviews'));
     }
 
     public function services()

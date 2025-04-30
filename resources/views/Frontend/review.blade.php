@@ -6,13 +6,18 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>UK Immigration &amp; Nationality Law Advice - Aid Immigration Careers</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="icon" type="image/x-icon" href="img/favicon.png">
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+     <!-- Owl Carousel CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
      <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
      <style>
@@ -106,6 +111,46 @@
           .submit-btn:hover {
           background-color: #333;
           }
+          .star {
+               transition: color 0.2s;
+          }
+          .star.selected,
+          .star.hovered {
+               color: gold !important;
+          }
+          .review-card {
+          background: #fff;
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease;
+          }
+          .review-card:hover {
+          transform: translateY(-5px);
+          }
+          .review-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          }
+          .star-rating .star {
+          font-size: 18px;
+          color: #ccc;
+          }
+          .star-rating .filled {
+          color: gold;
+          }
+          .review-title {
+          font-size: 16px;
+          margin-top: 10px;
+          font-weight: 600;
+          color: #333;
+          }
+          .review-body p {
+          font-size: 14px;
+          color: #555;
+          margin-top: 10px;
+          }
 
      </style>
 </head>
@@ -176,7 +221,7 @@
                     <div class="col-md-12 mt-4">
                          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                                   <li class="breadcrumb-item"><a href="route('front_end_index')">Home</a></li>
+                                   <li class="breadcrumb-item"><a href="{{route('front_end_index')}}">Home</a></li>
                                    <li class="breadcrumb-item active" aria-current="page">Review</li>
                               </ol>
                          </nav>
@@ -187,49 +232,109 @@
 
 
      <section>
+               
           <div class="container">
                <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
+                         
+                         @if(session('success'))
+                              <div class="alert alert-success">
+                              {{ session('success') }}
+                              </div>
+                         @endif
+
                          <div class="form-container">
-                              <form action="#" method="POST" class="review-form">
-                                   <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                             <form action="{{ route('review.store') }}" method="POST">
+                              @csrf
+                              <div class="form-group">
+                                   <label><strong>Name</strong></label>
+                                   <input type="text" name="name" class="form-control" placeholder="Enter your name"required value="{{ old('name') }}">
+                                   @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                   @enderror
+                              </div>
+
+                              <div class="form-group">
+                                   <label><strong>Email</strong></label>
+                                   <input type="email" name="email" class="form-control" placeholder="Enter your email" required value="{{ old('email') }}">
+                                   @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                   @enderror
+                              </div>
+
+                              <div class="form-group">
+                                   <label><strong>Review Title</strong></label>
+                                   <input type="text" name="title" class="form-control" placeholder="Enter review title" required value="{{ old('title') }}">
+                                   @error('title')
+                                        <div class="text-danger">{{ $message }}</div>
+                                   @enderror
+                              </div>
+
+                              <div class="form-group">
+                                   <label><strong>Rating</strong></label><br>
+                                   <div id="stars" style="font-size: 1.8rem; cursor: pointer; color: #ccc;">
+                                        @for($i = 1; $i <= 5; $i++)
+                                             <span class="star" data-value="{{ $i }}">&#9733;</span>
+                                        @endfor
                                    </div>
-                                   <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                                   </div>
-                                   <div class="form-group">
-                                        <label for="title">Review Title</label>
-                                        <input type="text" id="title" name="title" placeholder="Enter review title">
-                                   </div>
-                                   <div class="form-group">
-                                        <label for="rating">Rating</label>
-                                        <div class="rating">
-                                             <input type="radio" name="rating" id="star5" value="5">
-                                             <label for="star5">&#9733;</label>
-                                             <input type="radio" name="rating" id="star4" value="4">
-                                             <label for="star4">&#9733;</label>
-                                             <input type="radio" name="rating" id="star3" value="3">
-                                             <label for="star3">&#9733;</label>
-                                             <input type="radio" name="rating" id="star2" value="2">
-                                             <label for="star2">&#9733;</label>
-                                             <input type="radio" name="rating" id="star1" value="1">
-                                             <label for="star1">&#9733;</label>
+                                   <input type="hidden" name="rating" id="rating" value="1" value="{{ old('rating') }}"> <!-- default 1 -->
+                                   @error('rating')
+                                        <div class="text-danger">{{ $message }}</div>
+                                   @enderror
+                              </div>
+
+                              <div class="form-group">
+                                   <label><strong>Review Content</strong></label>
+                                   <textarea name="content" class="form-control" placeholder="Write your review here" rows="4"></textarea value="{{ old('content') }}">
+                                   @error('content')
+                                        <div class="text-danger">{{ $message }}</div>
+                                   @enderror
+                              </div>
+
+                              <button type="submit" class="btn btn-dark btn-block mt-3">Submit</button>
+                              </form>
+                             
+                         </div>
+                    </div> 
+                    
+                    <div class="col-md-6 text-center">
+                         <h2>See Users Review Here</h2>
+
+                         <div class="mt-5 owl-carousel review-carousel text-white">
+                                   @foreach ($reviews as $review)
+                                   <div style="height: 160px; width:180px;" class="review-card bg-dark">
+                                        {{-- নাম --}}
+                                        <div class="review-line">
+                                             <strong></strong> {{ $review->name ?? 'Anonymous' }}
+                                        </div>
+
+                                        {{-- রেটিং --}}
+                                        <div class="review-line">
+                                             <strong></strong>
+                                             @for ($i = 1; $i <= 5; $i++)
+                                                  @if ($i <= $review->rating)
+                                                  <span style="color: gold;">&#9733;</span>
+                                                  @else
+                                                  <span style="color: #ccc;">&#9734;</span>
+                                                  @endif
+                                             @endfor
+                                        </div>
+
+                                        {{-- টাইটেল --}}
+                                        <div class="review-line">
+                                             <strong></strong> {{ $review->title }}
+                                        </div>
+
+                                        {{-- কনটেন্ট --}}
+                                        <div class="review-line">
+                                             <strong></strong> {{ $review->content }}
                                         </div>
                                    </div>
-                                   <div class="form-group">
-                                        <label for="content">Review Content</label>
-                                        <textarea id="content" name="content" rows="4" placeholder="Write your review here"></textarea>
-                                   </div>
-                                   <button type="submit" class="submit-btn">Submit</button>
-                              </form>
+                              @endforeach
                          </div>
-                    </div>
-                    <div class="col-md-6">
-
-                    </div>
+                                            
+                    </div>                           
+                    
                </div>
           </div>
      </section>
@@ -308,12 +413,16 @@
           </footer>
      </section>
 
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
 
      <script src="{{asset('frontend/js/index.js')}}"></script>
+
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,3 +35,10 @@ Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.stor
 Route::get('/inquiries', [EnquiryController::class, 'enq_index']);
 
 Route::get('/inquiries/read/{id}', [EnquiryController::class, 'markAsRead'])->name('inquiry.markAsRead');
+
+
+// Review
+Route::post('/submit-review', [ReviewController::class, 'store'])->name('review.store');
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
