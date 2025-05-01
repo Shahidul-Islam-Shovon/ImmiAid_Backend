@@ -123,6 +123,7 @@
                 <span class="menu-title">Enquiry Section</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
+
               <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
@@ -131,6 +132,15 @@
                 </ul>
               </div>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('logos.index')}}">
+                <span class="menu-title">Add a Logo</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+
+
           </ul>
         </nav>
         <!-- Sidebar End -->

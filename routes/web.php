@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -42,3 +43,9 @@ Route::post('/submit-review', [ReviewController::class, 'store'])->name('review.
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
+// Logo
+
+Route::get('/add/logo', [LogoController::class, 'index'])->name('logos.index');
+Route::post('/logos', [LogoController::class, 'store'])->name('logos.store');
+Route::delete('/logos/{id}', [LogoController::class, 'destroy'])->name('logos.destroy');
+Route::resource('logos', LogoController::class);
