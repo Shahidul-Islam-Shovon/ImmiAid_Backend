@@ -88,6 +88,11 @@
                margin-top: -1%;
                margin-bottom: -2%;
           }
+          .header{
+              margin-top: -70px;
+              margin-bottom: -25px;
+             
+         }
 
      </style>
 </head>
@@ -98,7 +103,7 @@
           <div class="row align-items-center d-flex justify-content-between">
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
-                    <a href="../index.html">
+                    <a href="{{route('front_end_index')}}">
                          <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
                     </a>
                </div>
@@ -114,27 +119,7 @@
      <section>
           <div class="mt-4">
                <div class="col-md-12">
-                    <nav class="navbar">
-               <div class="container">
-                    <div class="nav-left">
-                         <span class="logo">Aid Immigration</span>
-                    </div>
-
-                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-
-                    <ul class="menu" id="menu">
-                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
-                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
-                         <li><a href="{{ route('services') }}">Services</a></li>
-                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
-                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
-                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
-                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
-                    </ul>
-
-                   
-               </div>
-               </nav>
+                    @include('Frontend.Navbar')
                </div>
           </div>
      </section>

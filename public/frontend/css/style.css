@@ -20,7 +20,6 @@ body {
 }
 .header{
      background-color: #e9e8ecb7;
-     margin-top: -5%;
      padding: 15px;
      display: flex;
      justify-content:center;
@@ -420,5 +419,87 @@ body {
           content: "";
           display: block;
           clear: both;
+     }
+}
+
+
+/* Site responsive Code */
+
+/* Basic Reset */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     font-family: Arial, sans-serif;
+     line-height: 1.6;
+     padding: 0;
+     margin: 0;
+     background-color: #f8f8f8;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+}
+
+/* Container to wrap content */
+.container {
+     max-width: 1200px;
+     margin: auto;
+     padding: 20px;
+}
+
+/* Responsive Grid */
+.grid {
+     display: grid;
+     gap: 20px;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Card or content block */
+.card {
+     background: #fff;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease;
+}
+
+.card:hover {
+     transform: translateY(-5px);
+}
+
+/* Headings */
+h1,
+h2 {
+     text-align: center;
+     margin-bottom: 20px;
+}
+
+/* Responsive Typography */
+h1 {
+     font-size: 2rem;
+}
+
+p {
+     font-size: 1rem;
+}
+
+/* Mobile Optimized */
+@media (max-width: 768px) {
+     h1 {
+          font-size: 1.5rem;
+     }
+
+     p {
+          font-size: 0.95rem;
+     }
+
+     .container {
+          padding: 15px;
      }
 }

@@ -10,10 +10,6 @@ box.style.display = (box.style.display === 'block') ? 'none' : 'block';
 }
 
 
-document.getElementById("search-button").addEventListener("click", function () {
-    document.getElementById("search-box").classList.toggle("active");
-});
-
 
 const stars = document.querySelectorAll('.star');
     const ratingInput = document.getElementById('rating');

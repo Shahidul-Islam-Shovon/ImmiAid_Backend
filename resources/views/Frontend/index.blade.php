@@ -3,7 +3,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>UK Immigration &amp; Nationality Law Advice - Aid Immigration Careers</title>
+     <title>Aid Immigration Services</title>
      
      <!-- Bootstrap CSS -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -33,50 +33,39 @@
          ul li h3 {
              color: whitesmoke;
          }
+         .header{
+          margin-top: -70px;
+          background-color: blanchedalmond;
+         }
      </style>
 </head>
 
 <body>
 
-<!-- Header Section -->
+<!-- Header Part Start -->
+
+<!-- Navbar Section -->
+
+
+{{-- Header logo and text --}}
+
 <section class="container-fluid header">
      <div class="row align-items-center d-flex justify-content-between">
           <div class="col-md-4 d-flex justify-content-start">
-               <a href="index.html">
+               <a href="{{route('front_end_index')}}">
                     <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
                </a>
           </div>
+
           <div class="col-md-7 d-flex justify-content-end">
                <h2 style="font-family: 'Roboto Slab', serif; font-weight: 700; margin-top: 5%; white-space: nowrap;">Aid Immigration Services</h2>
           </div>
      </div>
 </section>
 
-<!-- Navbar Section -->
 <section>
      <div class="col-md-12">
-          <nav class="navbar">
-               <div class="container">
-                    <div class="nav-left">
-                         <span class="logo">Aid Immigration</span>
-                    </div>
-
-                    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-
-                    <ul class="menu" id="menu">
-                         <li><a href="{{ route('front_end_index') }}">Home</a></li>
-                         <li><a href="{{ route('choose_us') }}">Why Choose Us</a></li>
-                         <li><a href="{{ route('services') }}">Services</a></li>
-                         <li><a href="{{ route('pricing') }}">Pricing</a></li>
-                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
-                         <li><a href="{{ route('review_us') }}">Review Us</a></li>
-                         <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
-                    </ul>
-
-                   
-               </div>
-               </nav>
-
+          @include('Frontend.Navbar')
      </div>
 </section>
 
@@ -96,7 +85,7 @@
                          <div class="carousel-caption d-none d-md-block custom-slide-left custom-first">
                               <h1 style="color: whitesmoke;">Explore The World</h1>
                               <h3 style="color: whitesmoke;">we give our best and affordable services</h3>
-                              <a href="assests/services.html"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
+                              <a href="{{ route('services') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
                          </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
@@ -104,7 +93,7 @@
                          <div class="carousel-caption d-none d-md-block custom-slide-left">
                               <h1 style="color: rgba(255, 102, 0, 0.973); font-weight: 900;">Explore Our Best Services</h1>
                               <h3 style="color: rgba(255, 102, 0, 0.973); font-weight: 700;">we give our best and affordable services according to your budget</h3>
-                              <a href="assests/services.html"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
+                              <a href="{{ route('services') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
                          </div>
                     </div>
                     <div class="carousel-item">
