@@ -5,6 +5,7 @@ use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ Route::get('/choose_us', [FrontEndController::class, 'choose'])->name('choose_us
 Route::get('/contact_us', [FrontEndController::class, 'contact'])->name('contact_us');
 Route::get('/pricing', [FrontEndController::class, 'pricing'])->name('pricing');
 Route::get('/review_us', [FrontEndController::class, 'review_us'])->name('review_us');
-Route::get('/services', [FrontEndController::class, 'services'])->name('services');
+Route::get('/services/all', [FrontEndController::class, 'services'])->name('services');
 Route::get('/sitemap', [FrontEndController::class, 'sitemap'])->name('sitemap');
 
 // Backend part start 
@@ -50,3 +51,6 @@ Route::post('/logos', [LogoController::class, 'store'])->name('logos.store');
 Route::delete('/logos/{id}', [LogoController::class, 'destroy'])->name('logos.destroy');
 Route::resource('logos', LogoController::class);
 
+
+// Services
+Route::resource('services', ServiceController::class);

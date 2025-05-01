@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Dashboard') }}</title>
+    <title>@yield('title')</title>
 
     <!-- External CSS -->
   
@@ -20,7 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('backend/images/favicon.png') }}"/>
+    
   </head>
   <body>
     <div class="container-scroller">
@@ -139,6 +139,14 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('services.index')}}">
+                <span class="menu-title">Add Services</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            
 
 
           </ul>
