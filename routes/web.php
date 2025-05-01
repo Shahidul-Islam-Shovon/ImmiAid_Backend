@@ -49,3 +49,4 @@ Route::get('/add/logo', [LogoController::class, 'index'])->name('logos.index');
 Route::post('/logos', [LogoController::class, 'store'])->name('logos.store');
 Route::delete('/logos/{id}', [LogoController::class, 'destroy'])->name('logos.destroy');
 Route::resource('logos', LogoController::class);
+
