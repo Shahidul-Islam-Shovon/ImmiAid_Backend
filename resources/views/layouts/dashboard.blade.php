@@ -146,6 +146,13 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('pricing.index')}}">
+                <span class="menu-title">Add Pricing</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
             
 
 

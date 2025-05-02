@@ -4,6 +4,7 @@ use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,7 @@ Route::resource('logos', LogoController::class);
 
 // Services
 Route::resource('services', ServiceController::class);
+
+// Pricing 
+
+Route::resource('pricing', PricingController::class);
