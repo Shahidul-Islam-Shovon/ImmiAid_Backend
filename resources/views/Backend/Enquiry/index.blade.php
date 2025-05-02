@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+
+@section('title', 'Users Enquiry')
+
+
 @section('content')
 <div class="container">
     <div class="row mb-3">
@@ -57,7 +61,7 @@
 @endsection
 
 
-@section('scripts')
+@push('scripts')
 <!-- Include jQuery & DataTable -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -69,5 +73,5 @@ $(document).ready(function () {
     $('#EnquiryTable').DataTable();
 });
 </script>
-@endsection
+@endpush
 

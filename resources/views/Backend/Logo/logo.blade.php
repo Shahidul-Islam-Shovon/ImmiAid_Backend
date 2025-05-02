@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+
+@section('title', 'Add Logo')
+
+
 @section('content')
 <div class="container">
     <h3>Add Logo</h3>
@@ -10,7 +14,7 @@
 
     <form action="{{ route('logos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="image" class="form-control mt-2">
+        <input type="file" name="image" class="form-control mt-2" required>
         @error('image')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -19,7 +23,7 @@
 
     <hr>
     <h4>All Logos</h4>
-    <table id="LogoTable" class="display">
+    <table id="LogoTable" class="display table table-striped">
         <thead>
             <tr>
                 <th>SL</th>
@@ -51,9 +55,6 @@
 
 @section('scripts')
 <!-- Include jQuery & DataTable -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
 <script>
 $(document).ready(function () {

@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
 
 
+@section('title', 'User List')
+
+
 @section('content')
 <div class="container">
     <h3>All Users</h3>
@@ -34,3 +37,5 @@
     </table>
 </div>
 @endsection
+
+
