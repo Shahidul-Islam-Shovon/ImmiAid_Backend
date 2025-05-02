@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ Route::get('/dashboard', [BackendController::class, 'index'])->name('backend_ind
 
 Route::get('/choose_us', [FrontEndController::class, 'choose'])->name('choose_us');
 Route::get('/contact_us', [FrontEndController::class, 'contact'])->name('contact_us');
-Route::get('/pricing', [FrontEndController::class, 'pricing'])->name('pricing');
+Route::get('/pricing/all', [FrontEndController::class, 'pricing'])->name('pricing');
 Route::get('/review_us', [FrontEndController::class, 'review_us'])->name('review_us');
 Route::get('/services/all', [FrontEndController::class, 'services'])->name('services');
 Route::get('/sitemap', [FrontEndController::class, 'sitemap'])->name('sitemap');
@@ -59,3 +60,6 @@ Route::resource('services', ServiceController::class);
 // Pricing 
 
 Route::resource('pricing', PricingController::class);
+
+
+

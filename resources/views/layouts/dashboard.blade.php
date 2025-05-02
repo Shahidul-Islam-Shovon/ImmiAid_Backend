@@ -153,6 +153,14 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+
+            @auth
+              @if(auth()->user()->is_admin)
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                  </li>
+              @endif
+          @endauth
             
 
 
