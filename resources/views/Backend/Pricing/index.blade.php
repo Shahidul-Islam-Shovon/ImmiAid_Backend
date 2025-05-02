@@ -68,7 +68,7 @@
             <select name="service_id" class="form-control @error('service_id') is-invalid @enderror">
               <option value="">-- Select Service --</option>
               @foreach($services as $service)
-                <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>{{ $service->service_name }}</option>
+                <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>{{ $service->service_name }}</option @required(true)>
               @endforeach
             </select>
             @error('service_id') <small class="text-danger">{{ $message }}</small> @enderror
@@ -77,34 +77,34 @@
           {{-- Fees Charged --}}
           <div class="form-group">
             <label for="fees_charged">Fees Charged (£)</label>
-            <input type="number" step="0.01" name="fees_charged" class="form-control @error('fees_charged') is-invalid @enderror" value="{{ old('fees_charged') }}">
+            <input type="number" step="0.01" name="fees_charged" class="form-control @error('fees_charged') is-invalid @enderror" value="{{ old('fees_charged') }}" required>
             @error('fees_charged') <small class="text-danger">{{ $message }}</small> @enderror
           </div>
 
           {{-- Home Office Fee --}}
           <div class="form-group">
             <label for="home_office_fee">Home Office Application Fee (£)</label>
-            <input type="number" step="0.01" name="home_office_fee" class="form-control @error('home_office_fee') is-invalid @enderror" value="{{ old('home_office_fee') }}">
+            <input type="number" step="0.01" name="home_office_fee" class="form-control @error('home_office_fee') is-invalid @enderror" value="{{ old('home_office_fee') }}" required>
             @error('home_office_fee') <small class="text-danger">{{ $message }}</small> @enderror
           </div>
 
           {{-- Description --}}
           <div class="form-group">
             <label for="work_description">Description of Work</label>
-            <textarea name="work_description" class="form-control @error('work_description') is-invalid @enderror" rows="3">{{ old('work_description') }}</textarea>
+            <textarea required name="work_description" class="form-control @error('work_description') is-invalid @enderror" rows="3">{{ old('work_description') }}</textarea>
             @error('work_description') <small class="text-danger">{{ $message }}</small> @enderror
           </div>
 
           {{-- Total --}}
           <div class="form-group">
             <label for="total">Total (£)</label>
-            <input type="number" step="0.01" name="total" class="form-control @error('total') is-invalid @enderror" value="{{ old('total') }}">
+            <input required type="number" step="0.01" name="total" class="form-control @error('total') is-invalid @enderror" value="{{ old('total') }}">
             @error('total') <small class="text-danger">{{ $message }}</small> @enderror
           </div>
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Add Pricing</button>
+          <button type="submit" class="btn btn-success">Add Pricing</button @required(true)>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#createModal').modal('hide')">Cancel</button>
         </div>
       </div>

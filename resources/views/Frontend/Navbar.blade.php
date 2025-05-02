@@ -78,6 +78,37 @@
   body {
     padding-top: 70px;
   }
+  .btn-nav {
+    background-color: #ffffff;
+    color: #005bbb;
+    font-weight: 600;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .btn-nav:hover {
+    background-color: #e0e0e0;
+    color: #003f7f;
+  }
+
+  .logout-btn {
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .auth-buttons {
+      flex-direction: column;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .btn-nav {
+      text-align: center;
+    }
+  }
 </style>
 
 <nav class="navbar">
@@ -97,6 +128,23 @@
       <li><a href="{{ route('review_us') }}">Review Us</a></li>
       <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
     </ul>
+
+    {{-- Auth buttons --}}
+    <div class="auth-buttons" style="display: flex; gap: 10px;">
+      @auth
+        @if(auth()->user()->isAdmin())
+          <a href="{{ route('dashboard') }}" target="__blank" class="btn-nav">Dashboard</a>
+        @endif
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="btn-nav logout-btn">Logout</button>
+        </form>
+      @endauth
+      @guest
+        <a href="{{ route('login') }}" class="btn-nav">Login</a>
+      @endguest
+    </div>
+
   </div>
 </nav>
 

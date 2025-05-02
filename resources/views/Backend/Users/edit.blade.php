@@ -2,31 +2,19 @@
 
 @section('content')
 <div class="container">
-    <h2>Edit User</h2>
+    <h3>Edit User</h3>
 
-    <form action="{{ route('users.update', $user->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-
-        <div class="mb-3">
+    <form method="POST" action="{{ route('users.update', $user->id) }}">
+        @csrf @method('PUT')
+        <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name', $user->name) }}" required>
+            <input name="name" class="form-control" value="{{ $user->name }}">
         </div>
-
-        <div class="mb-3">
+        <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+            <input name="email" class="form-control" value="{{ $user->email }}">
         </div>
-
-        <div class="mb-3">
-            <label>Role</label>
-            <select name="is_admin" class="form-control">
-                <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>User</option>
-                <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Admin</option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-success">Update User</button>
+        <button class="btn btn-success">Update</button>
     </form>
 </div>
 @endsection

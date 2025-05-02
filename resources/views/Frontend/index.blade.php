@@ -42,14 +42,9 @@
 
 <body>
 
-<!-- Header Part Start -->
-
-<!-- Navbar Section -->
-
-
-{{-- Header logo and text --}}
 
 <section class="container-fluid header">
+     
      <div class="row align-items-center d-flex justify-content-between">
           <div class="col-md-4 d-flex justify-content-start">
                <a href="{{route('front_end_index')}}">

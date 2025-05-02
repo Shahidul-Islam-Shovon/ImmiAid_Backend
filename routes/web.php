@@ -61,9 +61,18 @@ Route::resource('services', ServiceController::class);
 
 Route::resource('pricing', PricingController::class);
 
+// admin role 
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin-dashboard', [App\Http\Controllers\BackendController::class, 'index'])->name('dashboard');
 
+    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::patch('/users/{id}/make-admin', [App\Http\Controllers\UserController::class, 'makeAdmin'])->name('users.makeAdmin');
+    Route::get('/users/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
+});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', function () {
+    return redirect('/');
+});

@@ -105,7 +105,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{route('backend_index')}}">
+              <a class="nav-link" href="{{route('dashboard')}}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -154,13 +154,14 @@
               </a>
             </li>
 
-            @auth
-              @if(auth()->user()->is_admin)
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('users.index') }}">Users</a>
-                  </li>
-              @endif
-          @endauth
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('users.index')}}">
+                <span class="menu-title">All Users List</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+
+            
             
 
 
