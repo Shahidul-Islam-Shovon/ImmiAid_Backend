@@ -1,77 +1,3 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection --}}
-
 <!DOCTYPE html>
 <html
   lang="en"
@@ -128,7 +54,7 @@
   <body>
     <!-- Content -->
 
-    <div class="container col-md-4 mt-4">
+    <div class="container col-md-4 mt-4 shadow-xl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register -->
@@ -165,34 +91,13 @@
                       </defs>
                       <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
-                          <g id="Icon" transform="translate(27.000000, 15.000000)">
-                            <g id="Mask" transform="translate(0.000000, 8.000000)">
-                              <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                              </mask>
-                              <use fill="#696cff" xlink:href="#path-1"></use>
-                              <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-3"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
-                              </g>
-                              <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-4"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
-                              </g>
-                            </g>
-                            <g
-                              id="Triangle"
-                              transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
-                            >
-                              <use fill="#696cff" xlink:href="#path-5"></use>
-                              <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
-                            </g>
+                          
                           </g>
                         </g>
-                      </g>
+                      
                     </svg>
                   </span>
-                  <span class="text-body fw-bolder">Aid Immigration</span>
+                  <span class="display-5 mb-5 text-center">Aid Immigration</span>
                 </a>
               </div>
               <!-- /Logo -->
@@ -267,7 +172,7 @@
 
     
 
-     {{-- others --}}
+    {{-- others --}}
     <!-- JS Scripts (Order is important) -->
     <!-- jQuery First -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
