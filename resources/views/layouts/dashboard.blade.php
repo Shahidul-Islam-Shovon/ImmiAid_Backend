@@ -48,6 +48,47 @@
     <script src="{{asset('backend/vendor/js/helpers.js')}}"></script>
 
     <script src="{{asset('backend/js/config.js')}}"></script>
+      <style>
+    /* Side menu enhanced styles */
+    .layout-menu {
+      background: linear-gradient(180deg, #2d3e50, #1a252f);
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-inner .menu-item > .menu-link {
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 5px;
+      margin: 5px 10px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-inner .menu-item > .menu-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    .menu-inner .menu-item.active > .menu-link {
+      background-color: #4e73df;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .menu-icon {
+      color: #cfd8dc;
+      margin-right: 10px;
+    }
+
+    .menu-text {
+      color: #ffffff;
+    }
+
+    .menu-inner .menu-item.active .menu-icon {
+      color: #fff;
+    }
+
+  </style>
   </head>
 
   <body>
@@ -58,7 +99,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{route('dashboard')}}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -121,62 +162,61 @@
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
             </a>
           </div>
-
-          
+        
 
           <ul class="menu-inner py-1 shadow-lg">
           
             <!-- Dashboard -->
-
-            <li class="menu-item">
-              <a href="{{route('dashboard')}}" class="menu-link">
+            <li class="menu-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+              <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div>Dashboard</div>
               </a>
             </li>
 
-            {{-- others Nav --}}
-            <li class="menu-item">
-              <a href="{{route('front_end_index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Visit Website</div>
+            <li class="menu-item {{ Request::routeIs('front_end_index') ? 'active' : '' }}">
+              <a href="{{ route('front_end_index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-globe"></i>
+                <div>Visit Website</div>
               </a>
             </li>
 
-             <li class="menu-item">
-              <a  href="{{route('inquiry_page_open')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Users Enquiry</div>
+            <li class="menu-item {{ Request::routeIs('inquiry_page_open') ? 'active' : '' }}">
+              <a href="{{ route('inquiry_page_open') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-envelope"></i>
+                <div>Users Enquiry</div>
               </a>
             </li>
 
-            <li class="menu-item">
-              <a  href="{{route('logos.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Add Logo</div>
-              </a>
-            </li> 
-            
-            <li class="menu-item">
-              <a  href="{{route('services.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Add Service</div>
+            <li class="menu-item {{ Request::routeIs('logos.*') ? 'active' : '' }}">
+              <a href="{{ route('logos.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-image"></i>
+                <div>Add Logo</div>
               </a>
             </li>
-            
-            <li class="menu-item">
-              <a  href="{{route('pricing.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Add Pricing</div>
+
+            <li class="menu-item {{ Request::routeIs('services.*') ? 'active' : '' }}">
+              <a href="{{ route('services.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-briefcase"></i>
+                <div>Add Service</div>
               </a>
             </li>
-            
-            <li class="menu-item">
-              <a  href="{{route('users.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">See Users List</div>
+
+            <li class="menu-item {{ Request::routeIs('pricing.*') ? 'active' : '' }}">
+              <a href="{{ route('pricing.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+                <div>Add Pricing</div>
               </a>
-            </li>       
+            </li>
+
+            <li class="menu-item {{ Request::routeIs('users.*') ? 'active' : '' }}">
+              <a href="{{ route('users.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div>See Users List</div>
+              </a>
+            </li>
+
+
           </ul>
         </aside>
         <!-- / Menu -->

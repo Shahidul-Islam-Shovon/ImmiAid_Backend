@@ -1,6 +1,8 @@
 @extends('layouts.dashboard')
 
 
+
+
 @section('content')
 
 <div class="container">
@@ -15,7 +17,7 @@
                     <p style="color: green;">{{ session('success') }}</p>
                 @endif
 
-                <table id="inquiryTable" class="display">
+                <table id="EnquiryTable" class="display table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -45,4 +47,11 @@
     </div>
 </div>
 
+@endsection
+
+
+@section('script')
+<script>
+    alert("dsad");
+</script>
 @endsection
