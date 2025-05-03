@@ -90,3 +90,7 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 
     Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
