@@ -1,5 +1,4 @@
-@extends('layouts.dashboard')
-
+{{-- @extends('layouts.dashboard')
 
 
 
@@ -54,4 +53,4 @@
 <script>
     alert("dsad");
 </script>
-@endsection
+@endsection --}}
