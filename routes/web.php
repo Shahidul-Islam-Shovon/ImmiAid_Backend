@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FrontEndController;
@@ -67,6 +68,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', [App\Http\Controllers\BackendController::class, 'index'])->name('dashboard');
 
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    
     Route::patch('/users/{id}/make-admin', [App\Http\Controllers\UserController::class, 'makeAdmin'])->name('users.makeAdmin');
     Route::get('/users/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
@@ -75,4 +77,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('/dashboard', function () {
     return redirect('/');
+});
+
+
+// Profile Section
+
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/profile/see_page', [AdminProfileController::class, 'index'])->name('admin_profile.index');
+
+    Route::get('/admin/profile/edit', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });

@@ -213,7 +213,6 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 
                 
-
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -223,7 +222,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('admin.profile.edit')}}">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
@@ -241,7 +240,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('admin.profile.edit')}}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
@@ -252,10 +251,15 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                        
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                         @csrf
+                       </form>
                     </li>
                   </ul>
                 </li>
@@ -297,7 +301,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- DataTables & SweetAlert -->
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.bootstrap5.min.js"></script>
+
 
     <!-- Core JS -->    
     <script src="{{asset('backend/vendor/libs/popper/popper.js')}}"></script>

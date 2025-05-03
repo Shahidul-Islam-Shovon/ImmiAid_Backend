@@ -31,15 +31,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
+
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email'
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'role' => 'required|in:admin,user',
         ]);
 
-        $user->update($request->only('name', 'email'));
+        $user->update($request->only('name', 'email', 'role'));
 
-        return redirect()->route('users.index')->with('success', 'User updated');
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
+
 
     public function destroy($id)
     {

@@ -16,7 +16,7 @@
 
     {{-- Pricing Table --}}
     <div class="table-responsive">
-        <table id="PricingTable" class="table table-bordered table-striped">
+        <table id="PriceTable" class="table table-bordered table-striped display">
             <thead>
                 <tr>
                     <th>Service</th>
@@ -114,22 +114,13 @@
 </div>
 @endsection
 
-@section('scripts')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-
-<!-- Popper.js (required for dropdowns/modals/tooltips) -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
+@section('script')
 
 <script>
-$(document).ready(function () {
-    $('#PricingTable').DataTable();
-
-    @if ($errors->any())
-        $('#createModal').modal('show');
-    @endif
-});
+    $(document).ready(function () {
+        console.log('Trying to load DataTable...');
+        $('#PriceTable').DataTable();
+    });
 </script>
+
 @endsection

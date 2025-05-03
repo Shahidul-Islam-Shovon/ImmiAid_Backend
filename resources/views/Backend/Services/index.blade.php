@@ -104,16 +104,13 @@ Add Service
 @endsection
 
 
-@section('scripts')
-<!-- Include jQuery & DataTable -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+@section('script')
 
 <script>
-$(document).ready(function () {
-    console.log('Trying to load DataTable...');
-    $('#ServiceTable').DataTable();
-});
+    $(document).ready(function () {
+        console.log('Trying to load DataTable...');
+        $('#ServiceTable').DataTable();
+    });
 </script>
+
 @endsection

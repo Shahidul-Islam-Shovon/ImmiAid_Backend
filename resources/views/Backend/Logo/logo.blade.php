@@ -53,14 +53,15 @@
 
 @endsection
 
-@section('scripts')
-<!-- Include jQuery & DataTable -->
+@section('script')
 
 <script>
-$(document).ready(function () {
-    console.log('Trying to load DataTable...');
-    $('#LogoTable').DataTable();
-});
+    $(document).ready(function () {
+        console.log('Trying to load DataTable...');
+        $('#LogoTable').DataTable();
+    });
 </script>
+
 @endsection
+
 
