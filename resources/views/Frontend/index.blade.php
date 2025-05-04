@@ -52,7 +52,6 @@
 <body>
 
 
-  
 <section class="container-fluid header">
      <div class="row align-items-center d-flex justify-content-between">
           <div class="col-md-4 d-flex justify-content-start">
@@ -84,30 +83,33 @@
                </div>
 
                <div class="carousel-inner col-md-4">
-                    <div class="carousel-item active" data-bs-interval="10000">
+
+                    <div class="carousel-item active">
+                         <img style="height: 800px;" src="{{asset('frontend/img/4.jpg')}}" class="d-block w-100" alt="Img 03">
+                         <div class="carousel-caption d-none d-md-block custom-slide-right">
+                              <h1>Need a UK Immigration Visa</h1>
+                              <h5>We provide service that are Accessible according to need</h5>
+                               <a href="{{ route('services') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
+                         </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="10000">
                          <img style="height: 800px;" src="/frontend/img/banner2-1.jpg" class="d-block w-100" alt="img 01">
                          <div class="carousel-caption d-none d-md-block custom-slide-left custom-first">
                               <h1 style="color: whitesmoke;">Explore The World</h1>
                               <h3 style="color: whitesmoke;">we give our best and affordable services</h3>
-                              <a href="{{ route('services') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
+                              <a href="#"><button style="font-size: 20px;" class="btn btn-success mt-4">Explore the Site</button></a>
                          </div>
                     </div>
+
                     <div class="carousel-item" data-bs-interval="2000">
                          <img style="height: 800px;" src="/frontend/img/banner3-1.jpg" class="d-block w-100" alt="img 02">
                          <div class="carousel-caption d-none d-md-block custom-slide-left">
                               <h1 style="color: rgba(255, 102, 0, 0.973); font-weight: 900;">Explore Our Best Services</h1>
                               <h3 style="color: rgba(255, 102, 0, 0.973); font-weight: 700;">we give our best and affordable services according to your budget</h3>
-                              <a href="{{ route('services') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">Our Services</button></a>
+                              <a href="{{ route('pricing') }}"><button style="font-size: 20px;" class="btn btn-success mt-4">See Price List</button></a>
                          </div>
-                    </div>
-                    <div class="carousel-item">
-                         <img style="height: 800px;" src="/frontend/img/4.jpg" class="d-block w-100" alt="Img 03">
-                         <div class="carousel-caption d-none d-md-block custom-slide-right">
-                              <h1>Need a UK Immigration Visa</h1>
-                              <h5>We provide service that are Accessible according to need</h5>
-                              <button style="margin-left: 5%; font-size: 20px;" class="btn btn-success mt-4">Our Services</button>
-                         </div>
-                    </div>
+                    </div>                  
                </div>
 
                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
