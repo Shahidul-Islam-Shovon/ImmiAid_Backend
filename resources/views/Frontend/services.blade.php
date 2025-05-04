@@ -161,26 +161,11 @@
 
                     <div class="col-md-7">
                          <h4 class="service_text">We provide following services</h4>
-                    <ul class="services-list mt-5">
-                        
 
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/work-visas" target="_blank">TIER 5 TEMPORARY WORK</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/student-visas" target="_blank">TIER 4 STUDENT VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration/settle-in-the-uk" target="_blank">INDEFINITE LEAVE TO REMAIN</a></li>
-
-                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">FAMILY VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/citizenship/citizenship" target="_blank">CITIZENSHIP AND NATURALISATION</a></li>
-
-                         <li><a href="https://www.gov.uk/browse/visas-immigration" target="_blank">EEA PERMITS VISAS</a></li>
-
-                         <li><a href="https://www.gov.uk/settlement-refugee-or-humanitarian-protection" target="_blank">MARRIAGE VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/check-uk-visa" target="_blank">VISITOR VISA</a></li>
-
-                         <li><a href="https://www.gov.uk/uk-visa-sponsorship-employers" target="_blank">SPONSORS APPLICATIONS</a></li>
+                    <ul class="services-list mt-5">                    
+                         @foreach($services as $service)
+                              <li><a href="{{route('pricing')}}#pricing">{{$service->service_name}}</a></li>    
+                         @endforeach           
                     </ul>
                     
                     <p class="mt-5">Other Services: <br>

@@ -178,126 +178,37 @@
 
 
  <section>
-     <div class="container my-5">
+     <div class="container my-5" id="pricing">
           <h2 class="text-center mb-4">AID Immigration Service - Fee Scale</h2>
           <p class="text-center note">
                This fee scale details our fees for all immigration advice and services that we are registered to provide.
                All fees are on a fixed basis. VAT at 20% will not be added to the fees outlined below.
           </p>
           <div class="fee-table table-responsive">
-               <table class="table table-bordered table-striped">
+               <table id="PriceTable" class="display table table-bordered table-striped">
                     <thead>
                          <tr>
-                              <th>Type of Application</th>
-                              <th>Fees Charged</th>
+                              <th>SL</th>
+                              <th>Name of Services</th>
+                              <th>Our Fees Charged</th>
                               <th>Home Office Application Fee</th>
-                              <th>Description of Work Included in Fixed Fee</th>
-                              <th>Total</th>
+                              <th>Description of Work</th>
+                              <th>Total Fee</th>
                          </tr>
                     </thead>
+
                     <tbody>
-                         <tr class="highlight">
-                              <td>Level 1 Applications: e.g Basic applications within the immigration rules</td>
-                              <td>£700 (maximum)</td>
-                              <td>£XXX</td>
-                              <td>All attendances and written and telephone correspondence with the client and relevant 3rd
-                                   parties; consideration, preparation, and submission of application and relevant supporting
-                                   documents. Copies of documents and postage.</td>
-                              <td>£700</td>
-                         </tr>
-                         <tr>
-                              <td>Student Visa</td>
-                              <td>£300</td>
-                              <td>£XXX</td>
-                              <td>Standard application and documentation support.</td>
-                              <td>£300</td>
-                         </tr>
-                         <tr>
-                              <td>Graduate Visa (PSW)</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Preparation and submission of graduate visa application.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Visitor Visa</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Preparation of visitor visa application and supporting documents.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Skilled Worker Visa</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Assistance with skilled worker visa applications.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Citizenship</td>
-                              <td>£700</td>
-                              <td>£XXX</td>
-                              <td>Comprehensive guidance for citizenship application.</td>
-                              <td>£700</td>
-                         </tr>
-                         <tr>
-                              <td>ILR</td>
-                              <td>£600</td>
-                              <td>£XXX</td>
-                              <td>Indefinite leave to remain (ILR) application support.</td>
-                              <td>£600</td>
-                         </tr>
-                         <tr>
-                              <td>Ancestry Visa</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Support for ancestry visa applications.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>EUSS (Settled/Pre-Settled)</td>
-                              <td>£300</td>
-                              <td>£XXX</td>
-                              <td>Application preparation for EU Settlement Scheme.</td>
-                              <td>£300</td>
-                         </tr>
-                         <tr>
-                              <td>EUSS (JFM)</td>
-                              <td>£300</td>
-                              <td>£XXX</td>
-                              <td>Preparation of family member applications under EUSS.</td>
-                              <td>£300</td>
-                         </tr>
-                         <!-- Newly Added Rows -->
-                         <tr>
-                              <td>Parents Route</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Support for parent visa applications.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Partner Route</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Application preparation and assistance for partner visas.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Spouse Visa</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Guidance and documentation support for spouse visas.</td>
-                              <td>£500</td>
-                         </tr>
-                         <tr>
-                              <td>Fiance Visa</td>
-                              <td>£500</td>
-                              <td>£XXX</td>
-                              <td>Assistance with fiance visa application process.</td>
-                              <td>£500</td>
-                         </tr>
-                    </tbody>
+                         @foreach($pricing as $key => $price)
+                              <tr>
+                                   <td>{{$key + 1}}</td>
+                                   <td>{{ $price->service->service_name }}</td>
+                                   <td>{{ $price->fees_charged }}</td>
+                                   <td>{{ $price->home_office_fee }}</td>
+                                   <td>{{ $price->work_description }}</td>
+                                   <td>{{ $price->total }}</td>
+                              </tr>
+                         @endforeach
+                    </tbody> 
                </table>
           </div>
      </div>
@@ -396,11 +307,23 @@
 
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
+      <!-- DataTables & SweetAlert -->
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.0/js/dataTables.bootstrap5.min.js"></script>
+
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
 
      <script src="{{asset('frontend/js/index.js')}}"></script>
+
+     <script>
+           $(document).ready(function () {
+               console.log('Trying to load DataTable...');
+               $('#PriceTable').DataTable();
+          });
+     </script>
 </body>
 
 </html>
