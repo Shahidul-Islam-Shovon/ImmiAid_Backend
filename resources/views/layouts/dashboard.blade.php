@@ -270,7 +270,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
+                            <span class="fw-semibold d-block">{{ auth()->check() ? auth()->user()->name : 'Guest' }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>

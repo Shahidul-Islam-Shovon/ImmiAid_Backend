@@ -130,7 +130,7 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
+              <h4 class="mb-2">Explore Something New</h4>
               <p class="mb-4">Create a New Account Here</p>
 
               <form method="POST" action="{{ route('register') }}">
@@ -175,7 +175,7 @@
                       id="password"
                       class="form-control @error('password') is-invalid @enderror"
                       name="password"
-                      placeholder="••••••••••••"
+                      placeholder=""
                       autocomplete="new-password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
@@ -193,7 +193,7 @@
                       id="password-confirm"
                       class="form-control"
                       name="password_confirmation"
-                      placeholder="••••••••••••"
+                      placeholder=""
                       autocomplete="new-password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
