@@ -81,9 +81,18 @@
           }
           .header{
                margin-top: -70px;
-               margin-bottom: -25px;
-               
+               margin-bottom: -25px; 
+               background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);            
          }
+         .footer-link {
+          color: #ccc;
+          text-decoration: none;
+          transition: color 0.3s ease;
+          }
+          .footer-link:hover {
+               color: #f39c12;
+               text-decoration: none;
+          }
      </style>
 </head>
 
@@ -193,75 +202,62 @@
 
      <!-- footer section start -->
      <section>
-          <footer class="footer mt-5" style="background-color: #333; color: #fff; padding: 40px 0;">
-               <div class="container">
-                    <div class="row">
-                         <!-- Column 1: About Section -->
-                         <div class="col-md-3">
-                              <h5 style="color: #fff; font-weight: bold;">About Us</h5>
-                              <p style="font-size: 14px; text-align: justify;">
-                                   We provide quality services in web design, graphic design, and data entry. Our goal is to
-                                   help businesses grow through efficient and professional solutions.
-                              </p>
-                         </div>
-     
-                         <!-- Column 2: Quick Links -->
-                         <div class="col-md-3">
-                              <h5 style="color: #fff; font-weight: bold;">Quick Links</h5>
-                              <ul style="list-style: none; padding: 0; font-size: 14px;">
-                                   <li><a href="index.html" style="color: #fff; text-decoration: none;">Home</a></li>
-                                   <li><a href="assests/services.html"
-                                             style="color: #fff; text-decoration: none;">Services</a></li>
-     
-                                   <li><a href="assests/contact_us.html" style="color: #fff; text-decoration: none;">Contact
-                                             Us</a></li>
-                              </ul>
-                         </div>
-     
-                         <!-- Column 3: Contact Information -->
-                         <div class="col-md-3">
-                              <h5 style="color: #fff; font-weight: bold;">Contact Us</h5>
-                              <p style="font-size: 14px;">
-                                   Email: <a href="mailto:info@aid-immigration.co.uk"
-                                        style="color: #fff; text-decoration: none;">info@aid-immigration.co.uk</a><br>
-                                   Phone: 07501695476<br>
-     
-                              </p>
-                         </div>
-     
-                         <!-- Column 4: Follow Us -->
-                         <div class="col-md-3">
-                              <h5 style="color: #fff; font-weight: bold;">Follow Us</h5>
-                              <a href="https://www.facebook.com/profile.php?id=61569591272112" target="_blank"
-                                   style="color: #fff; text-decoration: none; margin-right: 10px;">
-                                   <i class="fab fa-facebook"></i> Facebook
-                              </a><br>
-     
-                              <a href="#" target="_blank" style="color: #fff; text-decoration: none; margin-right: 10px;">
-                                   <i class="fab fa-twitter"></i> Twitter
-                              </a><br>
-                              <a href="#" target="_blank" style="color: #fff; text-decoration: none; margin-right: 10px;">
-                                   <i class="fab fa-instagram"></i> Instagram
-                              </a>
-                         </div>
-                    </div>
-     
+           <footer class="footer mt-5" style="background-color: #1e1e1e; color: #ccc; padding: 60px 0 30px; font-family: 'Segoe UI', sans-serif;">
+          <div class="container">
+               <div class="row">
 
-                    <div class="row mt-4">
-                         <div class="col-12 text-center">
-                              <p class="trademark" style="margin: 0; font-size: 14px;">
-                                   All Rights Reserved || Design and Developed By
-                                   <a href="https://www.facebook.com/shahidulislam.khan.9279" target="_blank"
-                                        style="color: #f39c12; text-decoration: none;">
-                                        Shahidul Islam Shovon
-                                   </a>
-                              </p>
-                         </div>
+                    <!-- About Us -->
+                    <div class="col-md-3 mb-4">
+                         <h5 class="text-white font-weight-bold mb-3">About Us</h5>
+                         <p style="font-size: 14px; line-height: 1.7; text-align: justify;">
+                              We provide quality services in web design, graphic design, and data entry. Our goal is to help businesses grow through efficient and professional solutions.
+                         </p>
                     </div>
 
+                    <!-- Quick Links -->
+                    <div class="col-md-3 mb-4">
+                         <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
+                         <ul class="list-unstyled" style="font-size: 14px;">
+                              <li class="mb-2"><a href="{{route('front_end_index')}}" class="footer-link">Home</a></li>
+                              <li class="mb-2"><a href="{{route('services')}}" class="footer-link">Services</a></li>
 
+                              <li class="mb-2"><a href="{{route('contact_us')}}" class="footer-link">Contact Us</a></li>
+                         </ul>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div class="col-md-3 mb-4">
+                         <h5 class="text-white font-weight-bold mb-3">Contact Us</h5>
+                         <p style="font-size: 14px; line-height: 1.7;">
+                              Email: <a href="mailto:info@aid-immigration.co.uk" class="footer-link">info@aid-immigration.co.uk</a><br>
+                              Phone: <span style="color: #f1f1f1;">07501695476</span>
+                         </p>
+                    </div>
+
+                    <!-- Follow Us -->
+                    <div class="col-md-3 mb-4">
+                         <h5 class="text-white font-weight-bold mb-3">Follow Us</h5>
+                         <p>
+                              <a href="https://www.facebook.com/profile.php?id=61569591272112" target="_blank" class="footer-link">
+                                   <i class="fab fa-facebook mr-2"></i> Facebook
+                              </a><br>
+                              
+                         </p>
+                    </div>
                </div>
-          </footer>
+
+               <div class="row mt-4">
+                    <div class="col-12 text-center">
+                         <p class="mb-0" style="font-size: 13px; color: #aaa;">
+                              All Rights Reserved || Design and Developed By
+                              <a href="https://www.facebook.com/shahidulislam.khan.9279" target="_blank" style="color: #f39c12; font-weight: 600; text-decoration: none;">
+                                   Shahidul Islam Shovon
+                              </a>
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </footer>
      </section>
 
 

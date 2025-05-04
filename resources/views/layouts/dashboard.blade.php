@@ -175,7 +175,7 @@
             </li>
 
             <li class="menu-item {{ Request::routeIs('front_end_index') ? 'active' : '' }}">
-              <a href="{{ route('front_end_index') }}" class="menu-link">
+              <a href="{{ route('front_end_index') }}" class="menu-link" target="blank">
                 <i class="menu-icon tf-icons bx bx-globe"></i>
                 <div>Visit Website</div>
               </a>

@@ -10,7 +10,7 @@
 
 <style>
   .navbar {
-    background: #005bbb;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
     color: #fff;
     padding: 15px 20px;
     position: sticky;
@@ -108,8 +108,13 @@
     .btn-nav {
       text-align: center;
     }
+    .header{
+      margin-top: -70px;
+      background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+      }
   }
 </style>
+
 
 <nav class="navbar">
   <div class="container">
