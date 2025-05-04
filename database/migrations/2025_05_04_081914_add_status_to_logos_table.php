@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('logos', function (Blueprint $table) {
-            $table->enum('status', ['active', 'inactive'])->default('inactive')->after('image');
+            // $table->enum('status', ['1', '0'])->default('1')->after('image');
         });
     }
 
