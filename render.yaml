@@ -1,34 +1,33 @@
+version: '3.8'
+
 services:
-  - type: web
-    name: immi-aid-backend
-    env: docker
-    plan: free
-    region: singapore
-    dockerfilePath: ./Dockerfile
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: false
-      - key: APP_URL
-        value: https://immi-aid-backend.onrender.com
-      - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
-        fromDatabase:
-          name: immi-aid-db
-          property: host
-      - key: DB_PORT
-        value: 3306
-      - key: DB_DATABASE
-        fromDatabase:
-          name: immi-aid-db
-          property: database
-      - key: DB_USERNAME
-        fromDatabase:
-          name: immi-aid-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: immi-aid-db
-          property: password
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=secret
+
+  db:
+    image: mysql:8
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
