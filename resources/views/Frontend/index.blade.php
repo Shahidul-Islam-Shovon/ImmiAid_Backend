@@ -95,7 +95,7 @@
                          </div>
                     </div>
 
-                    <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="carousel-item" data-bs-interval="10000">
                          <img style="height: 800px;" src="/frontend/img/banner2-1.jpg" class="d-block w-100" alt="img 01">
                          <div class="carousel-caption d-none d-md-block custom-slide-left custom-first">
                               <h1 style="color: whitesmoke;">Explore The World</h1>

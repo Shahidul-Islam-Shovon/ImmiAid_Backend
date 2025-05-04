@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use App\Models\Review;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -15,33 +16,40 @@ class FrontEndController extends Controller
 
     public function choose()
     {
-        return view('Frontend.choose_us');
+        $logo = Logo::where('status', 1)->first(); 
+        return view('Frontend.choose_us', compact('logo'));
     }
 
     public function contact()
     {
-        return view('Frontend.contact_us');
+        $logo = Logo::where('status', 1)->first();
+        return view('Frontend.contact_us' , compact('logo'));
     }
 
     public function pricing()
     {
-        return view('Frontend.pricing');
+        $logo = Logo::where('status', 1)->first();
+        return view('Frontend.pricing', compact('logo'));
     }
 
     public function review_us()
     {
+        $logo = Logo::where('status', 1)->first();
         $reviews = Review::latest()->take(10)->get();
-        return view('Frontend.review', compact('reviews'));
+        return view('Frontend.review', compact('reviews','logo'));
     }
 
     public function services()
     {
-        return view('Frontend.services');
+        $logo = Logo::where('status', 1)->first();
+        $services = Service::get()->all();
+        return view('Frontend.services', compact('services', 'logo'));
     }
 
     public function sitemap()
     {
-        return view('Frontend.sitemap');
+        $logo = Logo::where('status', 1)->first();
+        return view('Frontend.sitemap', compact('logo'));
     }
 
 

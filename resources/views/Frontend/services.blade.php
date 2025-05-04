@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>UK Immigration &amp; Nationality Law Advice - Aid Immigration Careers</title>
+     <title>Services</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="icon" type="image/x-icon" href="img/favicon.png">
@@ -22,14 +22,17 @@
                font-weight: 700;
           }
           .background{
-               background-color: bisque;
-               padding: 59px;
+               background:linear-gradient(1675deg, #efd5ff 7%, #515ada 86%);
+               padding: 60px;
+               color:white;
+               
           }
           .service_text{
                border-bottom: 1px solid black;
                margin-top: 7%;
                padding: 10px;
                width: fit-content;
+               font-size: 2em;
           }
           body {
           margin: 0;
@@ -113,7 +116,9 @@
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
                     <a href="{{route('front_end_index')}}">
-                         <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
+                        @if($logo)
+                              <img style="width:180px; margin-top: -7%;" src="{{ asset('storage/' . $logo->image) }}" alt="Logo Here">
+                         @endif
                     </a>
                </div>
                <!-- Text on the right -->

@@ -23,8 +23,9 @@
                font-weight: 700;
           }
           .background{
-               background-color: bisque;
-               padding: 59px;
+               background:linear-gradient(1675deg, #efd5ff 7%, #515ada 86%);
+               padding: 60px;
+               color:white;
           }
           .chose_p{
                text-align: justify;
@@ -54,7 +55,9 @@
                <!-- Logo on the left -->
                <div class="col-md-4 d-flex justify-content-start">
                     <a href="{{route('front_end_index')}}">
-                         <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
+                         @if($logo)
+                              <img style="width:180px; margin-top: -7%;" src="{{ asset('storage/' . $logo->image) }}" alt="Logo Here">
+                         @endif
                     </a>
                </div>
                <!-- Text on the right -->
