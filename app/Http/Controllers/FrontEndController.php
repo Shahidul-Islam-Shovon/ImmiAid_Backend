@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
 {
     public function index(){
-        return view('Frontend.index');
+        $logo = Logo::where('status', 1)->first(); // active logo only
+        return view('Frontend.index', compact('logo'));
     }
 
     public function choose()

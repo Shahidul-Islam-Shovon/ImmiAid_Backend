@@ -55,8 +55,10 @@
 <section class="container-fluid header">
      <div class="row align-items-center d-flex justify-content-between">
           <div class="col-md-4 d-flex justify-content-start">
-               <a href="{{route('front_end_index')}}">
-                    <img style="width:180px; margin-top: -7%;" src="{{asset('frontend/img/logoo.png')}}" alt="Logo Here">
+               <a href="{{route('front_end_index')}}">                   
+                    @if($logo)
+                   <img style="width:180px; margin-top: -7%;" src="{{ asset('storage/' . $logo->image) }}" alt="Logo Here">
+                    @endif
                </a>
           </div>
 
@@ -93,7 +95,7 @@
                          </div>
                     </div>
 
-                    <div class="carousel-item" data-bs-interval="10000">
+                    <div class="carousel-item active" data-bs-interval="10000">
                          <img style="height: 800px;" src="/frontend/img/banner2-1.jpg" class="d-block w-100" alt="img 01">
                          <div class="carousel-caption d-none d-md-block custom-slide-left custom-first">
                               <h1 style="color: whitesmoke;">Explore The World</h1>

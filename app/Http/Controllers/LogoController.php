@@ -22,9 +22,28 @@ class LogoController extends Controller
 
         $path = $request->file('image')->store('logos', 'public');
 
-        Logo::create(['image' => $path]);
+        Logo::query()->update(['status' => 0]); // inactive all first
+
+        Logo::create([
+            'image' => $path,
+            'status' => 1
+        ]); 
 
         return back()->with('success', 'Logo uploaded successfully!');
+    }
+
+    //make active 
+    public function makeActive($id)
+    {
+        // সবগুলো logo ইনএকটিভ করে দাও
+        Logo::query()->update(['status' => 0]);
+
+        // শুধু যেটা সিলেক্ট হয়েছে সেটা একটিভ করো
+        $logo = Logo::findOrFail($id);
+        $logo->status = 1;
+        $logo->save();
+
+        return back()->with('success', 'Logo marked as active.');
     }
 
     public function edit($id)
