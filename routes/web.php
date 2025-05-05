@@ -46,14 +46,22 @@ Route::post('/submit-review', [ReviewController::class, 'store'])->name('review.
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-// Logo
 
-Route::get('/add/logo', [LogoController::class, 'index'])->name('logos.index');
+// routes/web.php
+
+// Custom route for form view (you named it logo.index)
+Route::get('/logo/adding', [LogoController::class, 'index'])->name('logo.index');
+
+// Resource route, but excluding index, store, and destroy to avoid conflict
+Route::resource('logos', LogoController::class)->except(['index', 'store', 'destroy']);
+
+// Manually define store and destroy routes
 Route::post('/logos', [LogoController::class, 'store'])->name('logos.store');
 Route::delete('/logos/{id}', [LogoController::class, 'destroy'])->name('logos.destroy');
-Route::resource('logos', LogoController::class);
 
+// Custom make-active route
 Route::get('/logos/{id}/make-active', [LogoController::class, 'makeActive'])->name('logos.makeActive');
+
 
 
 
