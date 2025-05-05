@@ -189,7 +189,7 @@
             </li>
 
             <li class="menu-item {{ Request::routeIs('logos.*') ? 'active' : '' }}">
-              <a href="{{ route('logos.index') }}" class="menu-link">
+              <a href="{{ route('logo.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-image"></i>
                 <div>Add Logo</div>
               </a>
