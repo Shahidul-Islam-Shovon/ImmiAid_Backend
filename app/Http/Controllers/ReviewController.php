@@ -25,4 +25,12 @@ class ReviewController extends Controller
 
         return redirect()->back()->with('success', 'Thank you for your review!');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // ইউজার লগিন চেক
+        $this->middleware('is_admin'); // ইউজারের রোল চেক
+    }
+
+    
 }

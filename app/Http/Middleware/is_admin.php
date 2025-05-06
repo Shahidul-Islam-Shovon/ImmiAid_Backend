@@ -14,15 +14,14 @@ class is_admin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    
-    public function handle(Request $request, Closure $next)
+
+    public function handle($request, Closure $next)
     {
-        // Check if user is logged in and role is 'admin'
-        if (Auth::check() && Auth::user()->role === 'admin') {
+        if (auth()->check() && auth()->user()->role === 'admin') {
             return $next($request);
         }
 
-        abort(403, 'Unauthorized'); // or redirect to login/dashboard
+        abort(403, 'Unauthorized action.');
     }
     
 }

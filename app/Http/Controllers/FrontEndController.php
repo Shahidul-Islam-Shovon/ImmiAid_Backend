@@ -53,6 +53,6 @@ class FrontEndController extends Controller
         $logo = Logo::where('status', 1)->first();
         return view('Frontend.sitemap', compact('logo'));
     }
-
+   
 
 }

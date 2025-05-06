@@ -59,4 +59,10 @@ class PricingController extends Controller
         Pricing::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'Pricing deleted successfully.');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // ইউজার লগিন চেক
+        $this->middleware('is_admin'); // ইউজারের রোল চেক
+    }
 }

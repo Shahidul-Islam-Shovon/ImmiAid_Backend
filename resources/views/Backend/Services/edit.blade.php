@@ -2,13 +2,29 @@
 
 @section('content')
 <div class="container">
-    <h2 style="margin-bottom: 25px;">Edit Service</h2>
-    <form style="margin-top:20px;" action="{{ route('services.update', $service->id) }}" method="POST">
+    <h2 class="mb-4">Edit Service</h2>
+
+    <form action="{{ route('services.update', $service->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="">Change Service Name</label>
-        <input style="margin-top: 20px;" class="form-control" type="text" name="service_name" value="{{ $service->service_name }}" required>
-        <button style="margin-top: 15px;" class="btn btn-success" type="submit">Update Service</button>
+
+        <div class="form-group mb-3">
+            <label for="service_name">Service Name</label>
+            <input
+                type="text"
+                name="service_name"
+                class="form-control @error('service_name') is-invalid @enderror"
+                value="{{ old('service_name', $service->service_name) }}"
+                required
+            >
+            @error('service_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Service</button>
     </form>
 </div>
 @endsection

@@ -1,11 +1,9 @@
 @extends('layouts.dashboard')
 
 
-@section('title')
+@section('title', 'Add Service')
 
-Add Service
 
-@endsection
 
 @section('content')
 <div class="container mt-5">

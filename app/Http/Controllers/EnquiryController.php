@@ -54,5 +54,11 @@ class EnquiryController extends Controller
         $inq->save();
 
         return redirect('/inquiries')->with('success', 'Inquiry marked as read.');
-    }   
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // ইউজার লগিন চেক
+        $this->middleware('is_admin'); // ইউজারের রোল চেক
+    }
 }

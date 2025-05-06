@@ -17,12 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'role'];
 
     public function isAdmin()
     {
@@ -47,4 +42,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // not to delete other Admin 
+
+    public function isSuperAdmin()
+    {
+        return $this->id === 1;
+    }
+
+    public function is_admin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
 }

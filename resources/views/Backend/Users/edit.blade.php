@@ -4,6 +4,14 @@
 <div class="container">
     <h3>Edit User</h3>
 
+     @if(session('success'))
+        <div class="alert alert-success text-bold">{{ session('success') }}</div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger text-bold">{{ session('error') }}</div>
+    @endif
+
     <form method="POST" action="{{ route('users.update', $user->id) }}">
         @csrf 
         @method('PUT')

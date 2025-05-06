@@ -69,7 +69,7 @@ class LogoController extends Controller
             $logo->update(['image' => $path]);
         }
 
-        return redirect()->route('logos.index')->with('success', 'Logo updated!');
+        return redirect()->route('logo.index')->with('success', 'Logo updated!');
     }
 
     public function destroy($id)
@@ -81,5 +81,11 @@ class LogoController extends Controller
         $logo->delete();
 
         return back()->with('success', 'Logo deleted successfully!');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // ইউজার লগিন চেক
+        $this->middleware('is_admin'); // ইউজারের রোল চেক
     }
 }

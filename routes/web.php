@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EnquiryController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController as ControllersUserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +31,9 @@ Route::get('/services/all', [FrontEndController::class, 'services'])->name('serv
 Route::get('/sitemap', [FrontEndController::class, 'sitemap'])->name('sitemap');
 
 // Backend part start 
+
+
+Route::post('/users', [ControllersUserController::class, 'store'])->name('users.store');
 
 
 // Enquiry section
@@ -53,7 +58,7 @@ Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index'
 Route::get('/logo/adding', [LogoController::class, 'index'])->name('logo.index');
 
 // Resource route, but excluding index, store, and destroy to avoid conflict
-Route::resource('logos', LogoController::class)->except(['index', 'store', 'destroy']);
+Route::resource('logos', LogoController::class)->except(['index', 'store', 'destroy'])->middleware(['auth', 'is_admin']);
 
 // Manually define store and destroy routes
 Route::post('/logos', [LogoController::class, 'store'])->name('logos.store');
@@ -66,11 +71,11 @@ Route::get('/logos/{id}/make-active', [LogoController::class, 'makeActive'])->na
 
 
 // Services
-Route::resource('services', ServiceController::class);
+Route::resource('services', ServiceController::class)->middleware(['auth', 'is_admin']);
 
 // Pricing 
 
-Route::resource('pricing', PricingController::class);
+Route::resource('pricing', PricingController::class)->middleware(['auth', 'is_admin']);;
 
 // admin role 
 
@@ -104,3 +109,7 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// ✅ এই লাইনে register বন্ধ হবে:
+Auth::routes(['register' => false]);
