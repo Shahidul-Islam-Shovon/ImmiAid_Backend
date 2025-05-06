@@ -120,6 +120,12 @@
     $(document).ready(function () {
         console.log('Trying to load DataTable...');
         $('#PriceTable').DataTable();
+
+        // If there are validation errors, reopen the modal
+        @if($errors->any())
+            var modal = new bootstrap.Modal(document.getElementById('createModal'));
+            modal.show();
+        @endif
     });
 </script>
 

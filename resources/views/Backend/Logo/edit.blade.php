@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Edit Logo')
+
 @section('content')
 <div class="container">
     <h3>Edit Logo</h3>

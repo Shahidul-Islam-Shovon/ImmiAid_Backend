@@ -21,13 +21,20 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'service_name' => ['required', 'regex:/^[A-Za-z\s]+$/']
+        // সার্ভিস নামটি প্রথমে চেক করো
+        $existingService = Service::where('service_name', $request->service_name)->exists();
+
+        // যদি সার্ভিস নাম আগে থেকেই থাকে
+        if ($existingService) {
+            return back()->withErrors(['service_name' => 'This Service name is Already Exists !!'])->withInput();
+        }
+
+        // যদি না থাকে, তখন ডাটা ইনসার্ট করো
+        Service::create([
+            'service_name' => $request->service_name,
         ]);
 
-        Service::create($request->all());
-
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        return back()->with('success', 'Service added successfully!');
     }
 
     public function edit(Service $service)

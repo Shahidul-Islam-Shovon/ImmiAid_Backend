@@ -44,10 +44,14 @@
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Delete this logo?')">Delete</button>
                         </form>
 
+                        @php
+                            $encodedId = base64_encode($logo->id);
+                        @endphp
+
                         @if($logo->status == 1)
                             <button class="btn btn-success btn-sm mt-1" disabled>Active</button> {{-- এটা disable --}}
                         @else
-                            <a href="{{ route('logos.makeActive', $logo->id) }}" class="btn btn-primary btn-sm mt-1">Make Active</a>
+                            <a href="{{ route('logos.makeActive', $encodedId) }}" class="btn btn-primary btn-sm mt-1">Make Active</a>
                         @endif
                     </td>
                 </tr>

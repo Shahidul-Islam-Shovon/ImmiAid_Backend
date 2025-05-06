@@ -18,7 +18,15 @@ class PricingController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'service_id' => 'required|exists:services,id',
+            'service_id' => [
+                'required',
+                'exists:services,id',
+                function ($attribute, $value, $fail) {
+                    if (Pricing::where('service_id', $value)->exists()) {
+                        $fail('This service already has a pricing entry.');
+                    }
+                }
+            ],
             'fees_charged' => 'required|numeric',
             'home_office_fee' => 'required|numeric',
             'work_description' => 'required|string',
@@ -42,7 +50,15 @@ class PricingController extends Controller
         $pricing = Pricing::findOrFail($id);
 
         $validated = $request->validate([
-            'service_id' => 'required|exists:services,id',
+            'service_id' => [
+                'required',
+                'exists:services,id',
+                function ($attribute, $value, $fail) use ($id) {
+                    if (Pricing::where('service_id', $value)->where('id', '!=', $id)->exists()) {
+                        $fail('This service already has a pricing entry.');
+                    }
+                }
+            ],
             'fees_charged' => 'required|numeric',
             'home_office_fee' => 'required|numeric',
             'work_description' => 'string',
@@ -53,6 +69,7 @@ class PricingController extends Controller
 
         return redirect()->route('pricing.index')->with('success', 'Pricing updated successfully.');
     }
+
 
     public function destroy($id)
     {

@@ -73,14 +73,15 @@
     </table>
 </div>
 
+
 <!-- Add Modal -->
-<div class="modal fade @if($errors->any()) show d-block @endif" id="addServiceModal" tabindex="-1" @if($errors->any()) style="display:block; background-color: rgba(0,0,0,0.5);" @endif>
+<div class="modal fade" id="addServiceModal" tabindex="-1">
     <div class="modal-dialog">
         <form class="modal-content" action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="modal-header">
                 <h5 class="modal-title">Add New Service</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
@@ -99,6 +100,10 @@
     </div>
 </div>
 
+
+
+
+
 @endsection
 
 
@@ -106,8 +111,13 @@
 
 <script>
     $(document).ready(function () {
-        console.log('Trying to load DataTable...');
         $('#ServiceTable').DataTable();
+
+        // If validation error exists, open modal automatically using Bootstrap JS
+        @if($errors->any())
+            var addModal = new bootstrap.Modal(document.getElementById('addServiceModal'));
+            addModal.show();
+        @endif
     });
 </script>
 
